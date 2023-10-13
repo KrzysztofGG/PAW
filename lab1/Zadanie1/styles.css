@@ -1,0 +1,99 @@
+.paragraphs p:nth-child(1){
+    background-color: cyan;
+    color: red;
+    font-size: 16px;
+    font-weight: 100;
+    margin: 20px;
+    padding: 10px;
+}
+.paragraphs p:nth-child(2){
+    background-color: rgb(120, 120, 120);
+    color: red;
+    font-size: 16px;
+    font-weight: 100;
+    width: 200px;
+    height: 10%;
+    margin-top: -20px;
+    padding: 5px;
+}
+.paragraphs p:nth-child(3){
+    background-color: brown;
+    color: black;
+    font-size: 23px;
+    font-weight: 500;
+    width: 300px;
+    height: 50px;
+    overflow: hidden;
+    margin: -5px;
+    padding: 3px 4px 5px 6px;
+}
+.paragraphs .p:nth-child(4){
+    background-color: magenta;
+    color: blue;
+    font-size: 2vh;
+    font-weight: 100;
+    font-style: bold;
+    margin-top: 30px;
+    padding: 15px;
+}
+table{
+    width: 100%;
+    margin-bottom: 20px;
+}
+ th, td{
+    height: 30px;
+}
+.borderless{
+    border: 0;
+}
+.borderless th{
+    border-bottom: 1.5px solid #fff;
+}
+
+.with-border{
+    width: 95%;
+}
+.with-border, .with-border th, .with-border td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.images{
+    width: 50%;
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+}
+img{
+    margin: 5px;
+    padding: 5px;
+    width: 130px;
+    float: left;
+}
+#dog2{
+    float: right;
+    bottom: 0;
+}
+.images-2{
+    display: flex;
+    flex-direction: column;
+}
+#dog-top{
+    order: 1;
+}
+#dog-mid{
+    order: 2
+}
+#dog-bottom{
+    order: 3;
+}
+.lists{
+    display: flex;
+    width: 70%;
+    flex-direction: column-reverse;
+    flex
+}
+.list-1{
+   background-color: blue;
+}
+.list-2{
+    background-color: red;
+}

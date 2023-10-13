@@ -1,0 +1,9 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+input:last-of-type{
+    margin: 10px 0 10px 0;
+}

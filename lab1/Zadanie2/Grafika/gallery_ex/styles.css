@@ -1,0 +1,41 @@
+.content{
+    padding: 50px;
+    /* width: 70%; */
+}
+
+#gallery{
+    display: grid;
+    /* width: 50%; */
+    /* grid-template-columns: repeat(2, 0.5fr); */
+    grid-template-columns: 250px 250px ;
+    /* grid-auto-rows:  */
+    width: 70%;
+}
+.figure{
+    border: 10px solid white;
+}
+h1{
+    border: 1px dashed gray;
+    border-right: 0;
+    color: rgb(32, 144, 181);
+    margin-bottom: 0;
+    padding: 5px;
+}
+.intro{
+    border-left: 1px dashed gray;
+    margin: 0 0 10px 0;
+    padding: 10px 10px 0 10px;
+}
+img{
+    border: 5px solid #fff;
+    outline: 1px solid gray;
+    box-shadow: 3px 3px 5px 1px rgb(154, 145, 145);
+    
+}
+.figure p{
+    text-align: center;
+    /* margin: 7px 3px 15px 3px; */
+    padding: 3px;
+    margin: 0;
+    
+}
