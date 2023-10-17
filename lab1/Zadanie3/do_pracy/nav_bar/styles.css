@@ -1,0 +1,67 @@
+.vertical a{
+    border: 1px dashed gray;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* width: 30%; */
+    width: 200px;
+    background-color: lightgray;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.horizontal li a:active, .vertical li a:active{
+    background-color: rgb(63, 195, 63);
+    /* content: ; */
+}
+.vertical li a:active > img{
+    content: url("images/go.png");
+}
+.vertival .quiz{
+    display: flex;
+    flex-direction: row-reverse;
+}
+img{
+    padding-right: 5px;
+}
+ul {
+    font-size: 15px;
+    list-style: none;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.vertical .quiz{
+    background-color: white;
+    /* flex-direction: row-reverse; */
+    font-weight: bold;
+    padding-left: 40px;
+}
+.vertical .quiz img{
+    position: relative;
+    left: 55%;
+}
+
+.horizontal{
+    display: flex;
+    justify-content: row;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.horizontal li div{
+    background-color: lightgray;
+    border: 1px dashed gray;
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    padding: 8px;
+    width: 140px;   
+}
+
+.horizontal .features{
+    background-color: white;
+    font-weight: bold;
+}

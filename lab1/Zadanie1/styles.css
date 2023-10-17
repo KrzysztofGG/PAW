@@ -54,8 +54,8 @@ table{
     width: 95%;
 }
 .with-border, .with-border th, .with-border td{
-    border: 1px solid black;
     border-collapse: collapse;
+    border: 1px solid black;
 }
 .images{
     width: 50%;
@@ -89,7 +89,7 @@ img{
     display: flex;
     width: 70%;
     flex-direction: column-reverse;
-    flex
+    /* flex */
 }
 .list-1{
    background-color: blue;
