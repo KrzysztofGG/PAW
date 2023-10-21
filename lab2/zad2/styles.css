@@ -1,0 +1,40 @@
+div{
+    height: 50px;
+    border: 2px solid black;
+    margin-bottom: 10px;
+}
+.row{
+    display: flex;
+    /* background-color: aquamarine; */
+    flex-direction: row;
+    justify-content: space-between;
+    border: 0;
+    /* margin-bottom: 10px; */
+    /* padding-bottom: 10px; */
+}
+.red{
+    background-color: red;
+    /* height: 50px; */
+    width: 30%;
+    /* margin-right: 30px; */
+    
+}
+.lightblue{
+    background-color: lightblue;
+    /* align-; */
+    /* height: 50px; */
+    width: 60%;
+    /* align-self: flex-end; */
+}
+.yellow{
+    background-color: yellow;
+    /* height: 50px; */
+    /* width: 90%; */
+}
+section{
+    width: 50%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
