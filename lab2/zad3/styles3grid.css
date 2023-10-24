@@ -1,0 +1,91 @@
+
+
+section{
+    display: grid;
+    height: 600px;
+    width: auto;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: 15% 10% 65% 10%;
+    border: 1px solid black;
+    padding: 10px 10px 20px 10px;
+    background-color: gray;
+    grid-template-areas:
+        "head head head head"
+        "nav nav nav nav"
+        "aside main main main"
+        "foot foot foot foot";
+}
+
+.site-head{
+    border: 2px solid black;
+    grid-area: head;
+    background-color: antiquewhite;
+}
+.head-content{
+    text-align: center;
+    margin-top: 10px;
+}
+.logo{
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    float: left;
+    margin-left: 10px;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+
+}
+.logo-text{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+.site-nav{
+    grid-area: nav;
+    background-color: aquamarine;   
+}
+.nav-flexbox{
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+    border: 1px solid black;
+}
+.nav-element{
+    display: flex;
+    height: 100%;
+    flex-basis: 25%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid red;
+}
+.site-aside{
+    grid-area: aside;
+    background-color: aliceblue;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.site-main{
+    grid-area: main;
+    background-color: beige;
+    border: 1px solid black;
+    text-align: center;
+    padding-top: 10px;
+}
+.site-foot{
+    border: 1px solid black;
+    grid-area: foot;
+    background-color: lightcyan;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.foot-content{
+    display: flex;
+}
+
+.logo{
+    float: left;
+}

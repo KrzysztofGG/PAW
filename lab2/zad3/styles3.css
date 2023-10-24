@@ -1,27 +1,51 @@
 *{
-    padding: 0;
-    border-top: 1px solid black;
+    /* padding: 0; */
+    /* border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black; */
+    box-sizing: border-box;
+}
+header, nav, main, footer, section{
+    width: 100%;
+    border: 1px solid black;
+}
+div{
     border-left: 1px solid black;
     border-right: 1px solid black;
 }
-header, nav, main, footer{
-    width: 100%;
+
+.header-cont{
+    
+    display:flex;
+    justify-content: space-around;
+}
+.header-text{
+    border: 0;
+    padding-top: 10px;
+    margin-left: 19%;
 }
 
 header{
+    display: flex;
     background-color: bisque;
     height: 20%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    text-align: center;
+    /* padding-top: -50px; */
 }
+
 .logo{
-    box-sizing:border-box;
-    width: 25%;
+    border: 1px solid black;
+    width: calc(25% - 10px);
     margin-left: 10px;
-    height: 50%;
+    margin-top: 10px;
+    height: 60%;
     background-color: gray;
+    display:flex;
+    align-items: flex-end;
+    padding: 0 0 5px 5px;
+    box-sizing: border-box;
 }
+
 nav{
     background-color: aliceblue;
     height: 10%;
@@ -29,7 +53,13 @@ nav{
 }
 .nav-element{
     width: 25%;
-    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.bold{
+    font-weight: bold;
 }
 main{
     background-color: green;
@@ -42,13 +72,30 @@ main{
 .main-column2{
     width: 75%;
 }
+main div{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding-top: 15px;
+    text-align: center;
+}
 
 footer{
     background-color: lightblue;
     height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* padding-bottom: 5px; */
+
+}
+
+footer span{
+    margin-bottom: 5px;
 }
 section{
-    padding: 10px 5px;
+    padding: 10px 10px 10px 15px;
+    /* border-bottom: 2px solid green; */
     width: 80%;
     height: 400px;
     background-color: red;
