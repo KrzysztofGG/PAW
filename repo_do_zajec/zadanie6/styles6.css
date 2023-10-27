@@ -1,33 +1,96 @@
+*{
+    /* border: 1px solid black; */
+    padding: 0;
+}
+
+
 main{
     display: flex;
     flex-direction: row;
-}
-nav{
-    width: 200px;
-    background-color: lightcyan;
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
 
 }
-.main-content{
-    width: 70%;
+nav{
+    /* width: 250px; */
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: all 1s ;
+
+}
+.clicked{
+    background-color: blue;
+}
+nav div.clicked p{
+    color: white;
+
+}
+.menu-element:hover:not(.clicked){
     background-color: lightblue;
-    
+}
+.main-content{
+    width: 100%;
+    margin-left: 20px;  
+    background-color: aqua;
 }
 
 .menu-element{
+    
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    border-radius: 0 15px 15px 0;
-    justify-content: space-around;
+    width: 250px;
+    border-radius: 0 12px 12px 0;
+    height: 50px;;
+    justify-content: flex-start;
     align-items: center;
+    padding: 0 10px;
+
+
+    transition: all 1s;
 }
 
-.menu-element img, .menu-element p{
-    color: blue;
+.menu-element img{
+    border: 2px solid darkblue;
+    border-radius: 10px;
+    padding: 3px;
 }
-*{
-    border: 1px solid black;
+
+.menu-element p{
+    margin-left: 5px;
+    color: darkblue;
+    font-weight: bold;
+    width: 200px;
+    opacity: 1;
+    transition: all 1s; 
+    overflow: hidden;
+    white-space: nowrap;
+}
+.number{
+    border-radius: 40%;
+    padding: 3px;
+    margin-right: 5px;
+    width: 20px; 
+    text-align: center;   
+    border: 2px solid darkblue;
+    color: darkblue;
+    font-weight: bold;
+    float: right;
+    position: relative;
+    left: 25px;
+    background-color: white;
+    transition: all 1s;
+
+    
+}   
+
+@media screen and (max-width: 550px){
+    .menu-element{
+        width: 60px;
+    }
+    .menu-element p{
+        width: 0px;
+        overflow: hidden;
+        margin-left: 0;
+    }
+
 }
