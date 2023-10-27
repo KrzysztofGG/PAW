@@ -1,0 +1,33 @@
+main{
+    display: flex;
+    flex-direction: row;
+}
+nav{
+    width: 200px;
+    background-color: lightcyan;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.main-content{
+    width: 70%;
+    background-color: lightblue;
+    
+}
+
+.menu-element{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-radius: 0 15px 15px 0;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-element img, .menu-element p{
+    color: blue;
+}
+*{
+    border: 1px solid black;
+}
