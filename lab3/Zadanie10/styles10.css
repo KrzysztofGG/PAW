@@ -1,0 +1,146 @@
+:root{
+  --position: rgb(246, 70, 255);
+  --back: yellow;
+}
+body{
+  background-color: var(--back);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.inner-menu-list{
+  width: 250px;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  list-style: none;
+  text-decoration: none;
+}
+.inner-menu-list-item{
+  overflow: hidden;
+}
+/* .huj:checked{
+  max-height: 20em;
+} */
+.inner-menu-list-item:target .sub-menu{
+  max-height: 20em;
+}
+/* .inner-menu-list-item:target */
+.inner-menu-list-item:target .sub-menu-h{
+  /* height: 0; */
+  display: none;
+}
+.inner-menu-list-item:target .second{
+  display: block;
+}
+
+.sub-menu-h, .second{
+  display: block;
+  padding: 20px 15px;
+  background-color: var(--position);
+  color: #fff;
+  position: relative;
+}
+.second{
+  background-color: red;
+  display: none;
+}
+/* triangle */
+.sub-menu-h:before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 15px;
+  bottom: -10px;
+  z-index: 1;
+  border-left: 6px solid transparent;
+  border-right:6px solid transparent;
+  border-top:12px solid var(--position);
+
+}
+.second:before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 15px;
+  bottom: -10px;
+  z-index: 1;
+  border-left: 6px solid transparent;
+  border-right:6px solid transparent;
+  border-top:12px solid red;
+
+}
+
+.sub-menu{
+  background: blue;
+  overflow: hidden;
+  max-height:0em;
+  transition: 500ms ease all;
+}
+.sub-menu a{
+  display: block;
+  padding: 20px 15px;
+  color: #fff;
+  font-size: 16px;
+ 
+  position: relative;
+  
+}
+.sub-menu a:before{
+  content: '';
+  opacity: 0;
+  transition: opacity 300ms ease;
+
+}
+.sub-menu a:hover{
+  background: -webkit-linear-gradient(top, blue 50%, rgb(43, 94, 233) 50% );
+  transition: all 0.3s;
+
+}
+
+.sub-menu a:hover:after{
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 6px;
+  right: 0px;
+  top:0;
+  opacity: 1;
+}
+
+
+.sub-menu a:hover::before{
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 5px;
+  left: 0;
+  top:0;
+  opacity: 1;
+  /* background-color: #d8d824; */
+  border-top: 27px solid transparent;
+  border-left: 10px solid var(--back);
+  border-bottom: 27px solid transparent;
+}
+.sub-menu a:hover::after{
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 5px;
+  left: 235px;
+  top:0;
+  opacity: 1;
+  /* background-color: #d8d824; */
+  border-top: 27px solid transparent;
+  border-right: 10px solid var(--back);
+  border-bottom: 27px solid transparent;
+}
+.sub-menu a:after{
+  content: '';
+  opacity: 0;
+  transition: opacity 300ms ease;
+}

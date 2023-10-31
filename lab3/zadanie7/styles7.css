@@ -1,0 +1,113 @@
+body{
+    display: flex;
+    justify-content: center;
+    height: 1000px;
+}
+main{
+    width: 95%;
+    /* min-width: 350px; */
+    height: 300px;
+    background-color: darkblue;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+}
+.center-column{
+    width: 400px;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+.full-img{
+    width: 100%;
+    height: 100%;
+}
+
+.caller{
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    /* left: 0px; */
+    left: 20px;
+}
+.caller img{
+    border-radius: 10px;
+}
+.controls{
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 20px;
+    height: 30px;
+    width: 120px;
+
+}
+
+.control-wrapper{
+    background-color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 3px #000;
+}
+.control-wrapper img{
+    width: 50%;
+}
+#phone{
+    background-color: red;    
+}
+.colored-buttons{
+    width: 10px;
+    height: 60px;
+    background-color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.colored-buttons img{
+    width: 5px;
+    height: 5px;
+}
+.colored-circle{
+    border-radius: 50%;
+    background-color: lightblue;
+    height: 5px;
+    width: 5px;
+}
+.lightgray{
+    background-color: lightgray;
+}
+
+*{
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 450px){
+    .full-img{
+        border-radius: 10px;
+    }
+    .center-column{
+        width: 100%;
+    }
+    main{
+        width: 100%;
+    }
+    .caller{
+        width: 60px;
+        height: 60px;
+    }
+}

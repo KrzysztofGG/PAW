@@ -19,9 +19,23 @@
             <div class="dropdown">
                 <button class="dropbtn">Menu&#x25BE</button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
+                    <a id="link1" href="#">Link 1</a>
                     <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <div id="link-dropdown" href="#"><span>Link 3</span><span>&#x25B8</span>
+                        <div class="dropdown-inside">
+                            <a id="link1" href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                            <!-- <a href="#"><span>More</span><span>&#x25B8</span></a> -->
+                            <div id="link-dropdown" href="#"><span>More</span><span>&#x25B8</span>
+                                <div class="dropdown-inside inside2">
+                                    <a id="link1" href="#">Link 1</a>
+                                    <a href="#">Link 2</a>
+                                    <a href="#">Link 3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <a href="#">Link 4 </a>
                 </div>
             </div>
@@ -31,17 +45,6 @@
                     <a href="#">Link 1</a>
                     <a href="#">Link 2</a>
                     <a href="#">Link 3</a>
-                    <!-- add another dropdown here -->
-                    <!-- <div class="dropdown">
-                        <button class="dropbtn">Services&#x25BE</button>
-                        <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                            <a href="#">Link 4  </a>
-                        </div>
-                    </div> -->
-
                     <a href="#">Link 4 </a>
                 </div>
             </div>
