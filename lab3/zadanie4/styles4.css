@@ -3,11 +3,15 @@
     font-family: Arial, sans-serif;
 }
 body{
-    display: flex;
-    justify-content: center;
-    background-color: lightblue;
+    /* display: flex;
+    justify-content: center; */
+    background-color: blue;
 }
 .flex-container{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
     margin: 30px;
     display: flex;
     justify-content: center;
@@ -16,7 +20,7 @@ body{
 
 /* text column */
 .column1{
-    position: relative;
+    /* position: relative; */
     width: 700px;
     margin: 20px;
 
@@ -40,7 +44,7 @@ button{
 
 /* form column */
 .column2{
-    position: relative;
+    /* position: relative;   */
     width: 300px;
 
 }
@@ -73,6 +77,15 @@ form input{
     font-size: 10px;
     margin-bottom: 0;
 }
+.separator{
+    background-color: white;
+    border-right: 100vw solid #fff;
+    border-top: 200px solid blue;
+    margin-top: -150px;
+    height: 1000px;
+    margin-left: -10px;
+}
+
 
 @keyframes downGetIn {
     from {transform: translateY(100%); }
