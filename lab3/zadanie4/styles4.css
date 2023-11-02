@@ -17,8 +17,6 @@ body{
 /* text column */
 .column1{
     position: relative;
-    top: -1000px;
-    left: -1000px;
     width: 700px;
     margin: 20px;
 
@@ -43,9 +41,8 @@ button{
 /* form column */
 .column2{
     position: relative;
-    left: 600px;
-    top: 1000px;
     width: 300px;
+
 }
 form{
     height: 280px;
@@ -76,33 +73,37 @@ form input{
     font-size: 10px;
     margin-bottom: 0;
 }
+
+@keyframes downGetIn {
+    from {transform: translateY(100%); }
+    to {transform: translateX(0); }
+}
+@keyframes upGetIn {
+    from {transform: translateY(-100%);}
+    to {transform: translateX(0); }
+}
+@keyframes leftGetIn {
+    from {transform: translateX(-100%);}
+    to {transform: translateX(0); }
+}
+@keyframes rightGetIn {
+    from {transform: translateX(100%);}
+    to {transform: translateX(0); }
+}
+
 @media screen and (min-width: 700px){
     .column1{
-        left: 0;
-        top: 0;
-        transition: left 1s;
+        animation-name: leftGetIn;
+        animation-duration: 1.5s;
     }
     .column2{
-        left: 0;
-        top: 0;
-        transition: left 1s;
-    }
-}
-@media screen and (max-width: 701px) and (min-width: 699px){
-    .column1{
-        top: -1000px;
-        left: -1000px;
-    }
-    .column2{
-        left: 600px;
-        top: 1000px;
-       
+        animation-name: rightGetIn;
+        animation-duration: 1.5s;
     }
 }
 @media screen and (max-width: 700px){
     .flex-container{
         flex-direction: column;
-        /* justify-content: center; */
         align-items: center;
     }
     .column1{
@@ -111,13 +112,11 @@ form input{
         align-items: center;
     }
     .column1{
-        left: 0;
-        top: 0;
-        transition: top 1s;
+        animation-name: upGetIn ;
+        animation-duration: 1.5s;
     }
     .column2{
-        left: 0;
-        top: 0;
-        transition: top 1s;
+        animation-name: downGetIn ;
+        animation-duration: 1.5s;
     }
 }

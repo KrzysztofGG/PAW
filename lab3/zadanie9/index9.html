@@ -7,23 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="gallery-container">
-        <div class="slider">
-            <div class="slides">
+    <div class="gallery">
 
-                <img id="slide1" src="img/dog1.jpg">
-                <img id="slide2" src="img/dog2.jpg">
-                <img id="slide3" src="img/dog3.jpg">
-                <img id="slide4" src="img/dog4.jpg">
-            </di v>
-        </div>
-        <div class="slider-nav">
-            <a href="slide1">zdjecie 1</a>
-            <a href="slide2">zdjecie 2</a>
-            <a href="slide3">zdjecie 3</a>
-            <a href="slide4">zdjecie 4</a>
+        <div class="container">
+            <div class="slides">
+                <input type="radio" name="common" id="btn1" checked>
+                <input type="radio" name="common" id="btn2">
+                <input type="radio" name="common" id="btn3">
+                <input type="radio" name="common" id="btn4">
+                
+            <div class="image first">
+                <img src="img/dog1.jpg">
+            </div>
+            <div class="image">
+                <img src="img/dog2.jpg">
+            </div>
+            <div class="image">
+                <img src="img/dog3.jpg">
+            </div>
+            <div class="image">
+                <img src="img/dog4.jpg">
+            </div>
+
         </div>
     </div>
-    
+        <div class="navigator">
+            <label for="btn1" class="bar">zdjecie 1</label>
+            <label for="btn2" class="bar">zdjecie 2</label>
+            <label for="btn3" class="bar">zdjecie 3</label>
+            <label for="btn4" class="bar">zdjecie 4</label>
+        </div>
+        
+    </div>
 </body>
 </html>

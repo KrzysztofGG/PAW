@@ -10,7 +10,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
-.inner-menu-list{
+.main-list{
   width: 250px;
   display: block;
   border-radius: 10px;
@@ -18,25 +18,25 @@ a {
   list-style: none;
   text-decoration: none;
 }
-.inner-menu-list-item{
+.main-list-item{
   overflow: hidden;
 }
 /* .huj:checked{
   max-height: 20em;
 } */
-.inner-menu-list-item:target .sub-menu{
+.main-list-item:target .sub-list{
   max-height: 20em;
 }
-/* .inner-menu-list-item:target */
-.inner-menu-list-item:target .sub-menu-h{
+/* .main-list-item:target */
+.main-list-item:target .sub-list-h{
   /* height: 0; */
   display: none;
 }
-.inner-menu-list-item:target .second{
+.main-list-item:target .second{
   display: block;
 }
 
-.sub-menu-h, .second{
+.sub-list-h, .second{
   display: block;
   padding: 20px 15px;
   background-color: var(--position);
@@ -48,7 +48,7 @@ a {
   display: none;
 }
 /* triangle */
-.sub-menu-h:before{
+.sub-list-h:before{
   content: '';
   position: absolute;
   width: 0;
@@ -75,13 +75,13 @@ a {
 
 }
 
-.sub-menu{
+.sub-list{
   background: blue;
   overflow: hidden;
   max-height:0em;
   transition: 500ms ease all;
 }
-.sub-menu a{
+.sub-list a{
   display: block;
   padding: 20px 15px;
   color: #fff;
@@ -90,19 +90,19 @@ a {
   position: relative;
   
 }
-.sub-menu a:before{
+.sub-list a:before{
   content: '';
   opacity: 0;
   transition: opacity 300ms ease;
 
 }
-.sub-menu a:hover{
+.sub-list a:hover{
   background: -webkit-linear-gradient(top, blue 50%, rgb(43, 94, 233) 50% );
   transition: all 0.3s;
 
 }
 
-.sub-menu a:hover:after{
+.sub-list a:hover:after{
   content: '';
   position: absolute;
   height: 0;
@@ -113,7 +113,7 @@ a {
 }
 
 
-.sub-menu a:hover::before{
+.sub-list a:hover::before{
   content: '';
   position: absolute;
   height: 0;
@@ -126,7 +126,7 @@ a {
   border-left: 10px solid var(--back);
   border-bottom: 27px solid transparent;
 }
-.sub-menu a:hover::after{
+.sub-list a:hover::after{
   content: '';
   position: absolute;
   height: 0;
@@ -139,7 +139,7 @@ a {
   border-right: 10px solid var(--back);
   border-bottom: 27px solid transparent;
 }
-.sub-menu a:after{
+.sub-list a:after{
   content: '';
   opacity: 0;
   transition: opacity 300ms ease;
