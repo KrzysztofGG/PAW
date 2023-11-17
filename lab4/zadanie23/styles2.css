@@ -1,0 +1,24 @@
+.border-th{
+    border: 2px solid gray
+}
+
+.one{
+    height: 70px;
+}
+.two, .four{
+    height: 50px;
+}
+.three{
+    height: 400px;
+}
+*{
+    box-sizing: border-box;
+}
+.menu{
+    background-image: url(tree.jpg)
+}
+button{
+    background-color: yellow;
+    color: yellow;
+    width: 55px;
+}

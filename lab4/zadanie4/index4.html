@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> 
+    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body>
+        <nav class="navbar fixed-top bg-light navbar-light navbar-expand-md ms-2 me-2">
+            <a href="#" class="navbar-brand">PAW &#1234</a>
+
+            <button type="button" class="navbar-toggler navbar-toggler-right" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse smooth-scroll" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navScrollspy">
+                    <li class="nav-item">
+                        <a href="#top" class="nav-link">Do góry</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-description" class="nav-link">O nas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-showcase" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-oferta" class="nav-link">Usługi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-cennik" class="nav-link">Ceny</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-staff" class="nav-link">Staff</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#section-contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <header>
+            <section id="top" class="container container-fluid p-5 ">
+                <div class="container p-5 bg-secondary text-light">
+                    <h1 class="display-1">PAW</h1>
+                    <p class="display-4">Chwytamy chwile</p>
+                    <p class="lead">Podziel się z przyjaciółmi i resztą Świata swoimi 
+                        najlepszymi zdjęciami i filmami
+                    </p>
+                    <p><strong>Download now on:</strong></p>
+                    <a href="#" class="btn btn-lg btn-primary">App Store</a>
+                    <a href="#" class="btn btn-lg btn-primary">Google Play</a>
+                </div>
+            </section>
+
+            <style type="text/css">
+                .container{
+                    background-image: url(lake.jpg);
+                    background-size: cover;
+                    background-position: center;
+                    background-attachment: fixed;
+                    /* min-height: 100vh; */
+                }
+                section{
+                    padding-top: 4rem;
+                }
+                *{
+                    color: white;
+                    text-align: center;
+                }
+            </style>
+        </header>
+        <div class="container">
+            <section id="section-description">
+                <h2 class="display-4">Kim jesteśmy?</h2>
+                <p>Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle
+                    poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia
+                    tekstem próbnej książki.</p>
+                    <p>Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając
+                        praktycznie niezmienionym. Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy
+                        Letrasetu, zawierających fragmenty Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem
+                        Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych, jak
+                        Aldus PageMaker</p> 
+            </section>
+
+            <section id="section-showcase" class="">
+                <h2 class="display-4">PAW w akcji</h2>
+                <p>Przykłady naszej działalności.</p>
+                <div id="carousel" class="carousel slide " data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carousel" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carousel" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carousel" data-bs-slide-to="2"></li>
+                        <li data-bs-target="#carousel" data-bs-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active justify-content-center">
+                            <img src="article1.jpg" alt="Image" class="d-block img-fluid w-100">
+                            <div class="carousel-caption">Opis obrazka</div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="article1.jpg" alt="Image" class="d-block img-fluid w-100">
+                            <div class="carousel-caption">Opis obrazka</div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="article1.jpg" alt="Image" class="d-block img-fluid w-100">
+                            <div class="carousel-caption">Opis obrazka</div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="article1.jpg" alt="Image" class="d-block img-fluid w-100">
+                            <div class="carousel-caption">Opis obrazka</div>
+                        </div>
+                    </div>
+                    <a href="#carousel" class="carousel-control-prev" role="button"
+                    data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a href="#carousel" class="carousel-control-next" role="button"
+                    data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </section>
+
+            <section id="section-oferta">
+                <h2 class="display-4">Co oferujemy</h2>
+
+                
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <i class="fa fa-paintbrush mb-4 text-info"></i>
+                        <h3 class="h4 mb-4 text-center">oferta 1</h3>
+
+                        <p> Neque porro quisquam est qui dolorem ipsum quia
+                            dolor sit amet, consectetur, adipisci velit.</p>
+                        <a href="#" class="btn btn-sm btn-info">Readmore...</a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <i class="fa fa-video-camera mb-4 text-info"></i>
+                        <h3 class="h4 mb-4 text-center">Oferta 2</h3>
+
+                        <p> Neque porro quisquam est qui dolorem ipsum quia
+                            dolor sit amet, consectetur, adipisci velit.</p>
+                        <a href="#" class="btn btn-sm btn-info">Readmore...</a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <i class="fa fa-instagram mb-4 text-info" ></i>
+                        <h3 class="h4 mb-4 text-center">oferta 3</h3> 
+
+                        <p> Neque porro quisquam est qui dolorem ipsum quia
+                            dolor sit amet, consectetur, adipisci velit.</p>
+                        <a href="#" class="btn btn-sm btn-info">Readmore...</a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <i class="fa fa-mobile mb-4 text-info"></i>
+                        <h3 class="h4 mb-4 text-center">Oferta 4</h3>
+
+                        <p> Neque porro quisquam est qui dolorem ipsum quia
+                            dolor sit amet, consectetur, adipisci velit.</p>
+                        <a href="#" class="btn btn-sm btn-info">Readmore...</a>
+                    </div>
+                </div>
+                </section>
+
+                <section id="section-cennik">
+                    <h2 class="display-4">Wybierz plan cenowy</h2>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2 class="text-dark">Starter</h2>
+                                    <h4>Free</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Perfect if you only take pictures for fun.</p>
+                                </div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Enhance your photos and videos</li>
+                                    <li class="list-group-item">Share on instagram</li>
+                                </ul>
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-success btn-lg">Select plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="card">
+                            <div class="card-header">
+                            <h2>Semi-pro</h2>
+                            <h4>$1.99 / month</h4>
+                            </div>
+                            <div class="card-body">
+                            <p class="card-text">Perfect if you're a semi-pro photographer.</p>
+                            </div>
+                            <ul class="list-group">
+                            <li class="list-group-item">Enhance your photos and videos</li>
+                            <li class="list-group-item">Share on Instagram</li>
+                            <li class="list-group-item">Advanced settings</li>
+                            </ul>
+                            <div class="card-footer">
+                            <a href="#" class="btn btn-warning btn-lg">Select plan</a>
+                            </div>
+                            </div>
+                            </div> 
+                            <div class="col-12 col-md-4">
+                                <div class="card">
+                                <div class="card-header">
+                                <h2>Pro</h2>
+                                <h4>$4.99 / month</h4>
+                                </div>
+                                <div class="card-body">
+                                <p class="card-text">Perfect if you're a pro photographer.</p>
+                                </div>
+                                <ul class="list-group">
+                                <li class="list-group-item">Enhance your photos and videos</li>
+                                <li class="list-group-item">Share on Instagram</li>
+                                <li class="list-group-item">Advanced settings</li>
+                                <li class="list-group-item">Cloud storage</li>
+                                </ul>
+                                <div class="card-footer">
+                                <a href="#" class="btn btn-danger btn-lg">Select plan</a>
+                                </div>
+                                </div>
+                                </div>
+                    </div>
+                </section>
+                <section id="section-staff">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <!-- <div class="img-container"> -->
+                                <img src="woman.jpg">
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <!-- <div class="img-container"> -->
+                                <img src="woman.jpg">
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <!-- <div class="img-container"> -->
+                                <img src="woman.jpg">
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <!-- <div class="img-container"> -->
+                                <img src="woman.jpg">
+                            <!-- </div> -->
+                        </div>
+                       
+                    </div>
+                </section>
+
+                <section id="section-contact" class="d-flex justify-content-center">
+                   
+                    <form class="w-50 p-5 mb-3">
+                        <h4 class="display-4">Contact Us</h4>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary ">Submit</button>
+                    </form>
+
+                </section>
+
+                <style type="text/css">
+                    .card h2, .card h4, .card p, .modal h1, .modal p, .modal h4, .modal span{
+                        color: black;
+                    }
+                    .card{
+                        margin-bottom: 1rem;
+                    }
+                    .col-lg-3 img{
+                        width: 300px;
+                        height: 300px;
+                        /* height: 50px; */
+                        border-radius: 50%;
+                        box-shadow: 0 0 9px 1px gray;
+                    }
+                    form{
+                        border: 3px solid white;
+                    }
+                </style>
+        </div>
+            <footer>
+                <div class="container">
+                    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
+                    data-bs-target="#modal">
+                        Polityka prywatności
+                    </button>
+                </div>
+            </footer>
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modalLabel">Modal title</h4>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h1>Header</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default btn-primary" type="button" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container bg-warning d-flex flex-column justify-content-center col-3">
+        <div class="d-flex justify-content-center">
+            <div class=" d-flex  m-2">
+                <button onclick="addElement()" class="btn btn-primary btn-lg">Add</button>
+            </div>
+            <div class=" d-flex m-2">
+                <button onclick="removeElement()" class="btn btn-danger btn-lg">Remove</button>
+            </div>
+        </div>
+        <ul id="elements"></ul>
+    </div>
+
+    <style>
+        ul{
+            list-style-type: none;
+            text-align: center;
+            padding: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button{
+            width: 100px;
+        }
+    </style>
+    <script>
+        index = 0;
+
+        function addElement(){
+            var list = document.getElementById('elements');
+            var values = list.getElementsByTagName("li");
+            console.log(list)
+            var entry = document.createElement('li');
+            // entry.innerHTML = "Element " + (values.length + 1);
+            entry.innerHTML = "Element " + (++index);
+            list.appendChild(entry);
+        }
+
+        function removeElement(){
+            var list = document.getElementById('elements');
+            list.querySelector('li').remove()
+        }
+    </script>
+</body>
+</html>
