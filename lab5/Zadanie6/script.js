@@ -8,7 +8,7 @@ fetch('user.json')
 
 
             console.log(p)
-            // p.forEach(x => console.log(x))
+            createPersonBlock(p);
 
 
         })
@@ -16,7 +16,7 @@ fetch('user.json')
     });
 
 function createPersonBlock(person){
-    main = document.findElementById('main');
+    main = document.getElementById('main');
     var block = document.createElement('div');
 
     var name = document.createElement('p')
@@ -25,7 +25,16 @@ function createPersonBlock(person){
 
     var check = document.createElement('input');
     check.setAttribute('type', 'checkbox');
-    privateData = document.createElement('span');
-    privateData.innerHTML = person.email + "\n" +
-     person.phone + "\n" + person.Address;
+    check.setAttribute('id', 'private')
+    
+    var privateData = document.createElement('label');
+    privateData.setAttribute('for', 'private')
+
+    var address = `${person.Address.Street} ${person.Address.City} ${person.Address.State}`
+    privateData.innerHTML = person.email + "<br>" +
+     person.phone + "</br>" + address;
+    block.appendChild(check);
+    block.appendChild(privateData);
+
+    main.appendChild(block);
 }

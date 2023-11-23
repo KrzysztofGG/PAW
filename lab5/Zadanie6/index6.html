@@ -11,6 +11,46 @@
     <main id="main">
 
     </main>
-
+    <style>
+        main{
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+        }
+        main div{
+            width: 250px;
+            margin: 10px;
+            border: 1px solid blue;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 5px;
+            background-color:beige
+        }
+        p{
+            margin: 0 0 10px 0;
+            border: 1px solid lightblue;
+            background-color: aliceblue;
+        }
+        input{
+            margin: 0;
+            padding: 0;
+        }
+        label{
+            line-height: 1.4;
+            border: 1px solid lightblue;
+            background-color: aliceblue;
+            font-weight: normal;
+        }
+        input + label{
+            display: none;
+        }
+        input:checked + label{
+            display: block;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </body>
 </html>
