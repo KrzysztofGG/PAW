@@ -32,7 +32,6 @@
         }
     </style>
     <script>
-        index = 0;
 
         function addElement(){
             var list = document.getElementById('elements');
@@ -40,7 +39,7 @@
             console.log(list)
             var entry = document.createElement('li');
             // entry.innerHTML = "Element " + (values.length + 1);
-            entry.innerHTML = "Element " + (++index);
+            entry.innerHTML = "Element " + (values.length);
             list.appendChild(entry);
         }
 

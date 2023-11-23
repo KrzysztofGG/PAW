@@ -8,16 +8,27 @@
 </head>
 <body>
     <div class="container d-flex flex-column align-items-center text-center col-3">
-        <button class="btn btn-lg btn-primary mt-5 col-3" onclick="getName()">Click Me</button>
+        <button class="btn btn-lg btn-primary mt-5 3" onclick="getName()">Click Me</button>
         <h1 id="hello" class="display-4"></h1>
     </div>
-    
+    <style>
+        button{
+            width: 100px;
+        }
+    </style>
     <script>
         function getName(){
             let person = prompt("Please enter your name", "");
             if (person != ""){
+                let added ="";
+                if (person.endsWith('a') && person.toLowerCase() !== "kuba"){
+                    added = "pani"
+                }
+                else{
+                    added = "pan"
+                }
                 document.getElementById("hello").innerHTML = 
-                "Hello " + person;
+                "Witam " + added + " " + person;
             }
         }
     </script>

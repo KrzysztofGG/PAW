@@ -21,9 +21,6 @@ a {
 .main-list-item{
   overflow: hidden;
 }
-/* .huj:checked{
-  max-height: 20em;
-} */
 .main-list-item:target .sub-list{
   max-height: 20em;
 }
@@ -99,6 +96,7 @@ a {
 .sub-list a:hover{
   background: -webkit-linear-gradient(top, blue 50%, rgb(43, 94, 233) 50% );
   transition: all 0.3s;
+  /* border: 0; */
 
 }
 
@@ -121,7 +119,6 @@ a {
   left: 0;
   top:0;
   opacity: 1;
-  /* background-color: #d8d824; */
   border-top: 27px solid transparent;
   border-left: 10px solid var(--back);
   border-bottom: 27px solid transparent;
@@ -134,7 +131,6 @@ a {
   left: 235px;
   top:0;
   opacity: 1;
-  /* background-color: #d8d824; */
   border-top: 27px solid transparent;
   border-right: 10px solid var(--back);
   border-bottom: 27px solid transparent;

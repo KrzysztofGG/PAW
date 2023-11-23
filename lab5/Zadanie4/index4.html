@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- -----DO ZROBEINIA---- -->
+    <div class="button-container">
+        <button id="clicker">Clicker</button>
+        <button id="add" onclick="addOnClick()">Add event</button>
+        <button id="del" onclick="removeOnClick()">del event</button>
+    </div>
+    <p id="clickedCount">Clicked:</p>
+    <script>
+        let clicked = 0;
+        function addOnClick(){
+            let clickerBtn = document.getElementById('clicker');
+            clickerBtn.onclick = function(){clickEvent()};
+        }
+        function removeOnClick(){
+            let clickerBtn = document.getElementById('clicker');
+            clickerBtn.removeAttribute('onclick');
+            clicked = 0;
+            countClicks();
+        }
+        function clickEvent(){
+            clicked++;
+            console.log(clicked);
+            countClicks();
+        }
+        function countClicks(){
+            let clickedCount = document.getElementById('clickedCount');
+            clickedCount.innerHTML = "Clicked: " + clicked;
+        }
+    </script>
 </body>
 </html>
