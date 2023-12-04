@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <main id="main">
+        <div id="board">
+            Press Anywhere
+            <div id="ball"></div>
+        </div>
+        <p id="info">But not here...</p>
+    </main>
+    <style>
+        main{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        #info{
+            display: none;
+            position: absolute;
+            font-size: 20px;
+            border: 1px solid red;
+            background-color: black;
+            color: red;
+        }
+        #board{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            width: 600px;
+            height: 400px;
+            box-shadow: 0 0 3px 2px ;
+            background-color: beige;
+            position: relative;
+        }
+        #ball{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            border-radius: 50%;
+            background-color: red;
+            z-index: 1;
+            transition: 1s;
+        }
+        *{
+            margin: 0;
+        }
+    </style>
+    <script src="script.js"></script>
+</body>
+</html>

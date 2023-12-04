@@ -1,0 +1,29 @@
+.data{
+    
+    /* padding-top: 10px; */
+    margin: 0px 2px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* padding-top: 10px; */
+
+}
+.data-p{
+    background-color: lightblue;
+}
+.subregion-data{
+    margin: 5px 2px;
+}
+.pagination-wrapper{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    user-select: none;
+}
+.pagination p{
+    margin: 10px;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+

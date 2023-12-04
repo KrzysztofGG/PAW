@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark">
+    <div class="container d-flex d-lg-none">
+        <a href="#" class="navbar-brand ">PAW Kurs Programowania Webowego</a>
+
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse smooth-scroll me-3" id="navbarNav">
+            <ul class="navbar-nav ms-auto" id="navScrollspy">
+                <li class="nav-item">
+                    <a href="#top" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#section-description" class="nav-link">Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#section-showcase" class="nav-link">Our Instructors</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#section-oferta" class="nav-link">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#section-cennik" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid d-none d-lg-flex">
+        <a href="#" class="navbar-brand ">PAW Kurs Programowania Webowego</a>
+
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse smooth-scroll me-3" id="navbarNav">
+            <ul class="navbar-nav ms-auto" id="navScrollspy">
+                <li class="nav-item">
+                    <a href="#top" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#section-description" class="nav-link">Curriculum</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#section-showcase" class="nav-link">Our Instructors</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#section-oferta" class="nav-link">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#section-cennik" class="nav-link">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+    <style>
+        .showcase-text{
+            text-align: center;
+            position:absolute;
+            bottom: 10%;
+            z-index: 2;
+            color: white;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            font-size: 15px;
+        }
+        .display-4{
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #accordion-head{
+            text-align: center;
+        }
+    </style>
+    
+    <section id="section-showcase" class="d-sm-none  d-md-block position-relative">
+        <div class="showcase-text">
+            <h2 class="display-4">Different Learning Resources</h2>
+            <p>PAW provides the needed learning resources from hard copies and the digital ones in out large library</p>
+        </div>
+        <div id="carousel" class="carousel slide " data-ride="carousel">
+            
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carousel" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carousel" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carousel" data-bs-slide-to="2"></li>
+                <li data-bs-target="#carousel" data-bs-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active justify-content-center">
+                    <img src="carousel1.jpg" alt="Image" class="d-block img-fluid w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="carousel2.jpg" alt="Image" class="d-block img-fluid w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="carousel3.jpg" alt="Image" class="d-block img-fluid w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="carousel4.jpg" alt="Image" class="d-block img-fluid w-100">
+                </div>
+            </div>
+            <a href="#carousel" class="carousel-control-prev" role="button"
+            data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a href="#carousel" class="carousel-control-next" role="button"
+            data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+    </section>
+
+    <section id="section-accordion">
+        <div class="container">
+
+        <h2 id="accordion-head">Frequently Asked Questions</h2>
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  What I will learn?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  You will study the front end and the back end tools.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Should i have any experience before joining this program?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  You don't need any experience.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Can i take this program in the weekends only?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  No, you will need way more time than just the weekends.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  Can i use PC or MAC computer?
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Of course, why not.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style6.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/a47768d1e7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <label for="password">New password</label>
+        <div class="password-wrap">
+            <input type="password" id="password">
+            <button id="show" class="show">
+                <img src="eye_open.png">
+            </button>
+        </div>
+
+        <label for="re-password">Repeat new password</label>
+        <div class="password-wrap">
+            <input type="password" id="re-password">
+            <button id="show-re" class="show">
+
+                <img src="eye_open.png">
+            </button>
+        </div>
+
+
+        <p id="identity">Passwords aren't identical</p>
+
+        <p id="requirements">Password requirements</p>
+        <div id="length" class="info">
+            <img src="wrong.png">
+            <p>At least 8 characters</p>
+        </div>
+
+        <div id="has-special" class="info">
+            <img src="wrong.png">
+
+            <p>At least one special characters</p>
+        </div>
+
+        <div id="has-capital" class="info">
+            <img src="wrong.png">
+            <p>At least one capital letter</p>
+        </div>
+
+        <div id="has-digit" class="info">
+            <img src="wrong.png">
+            <p>At least one digit</p>
+        </div>
+        <p id="valid">Password is valid</p>
+    </main>
+    
+</body>
+</html>
