@@ -1,0 +1,26 @@
+<p>actor works!</p>
+<form (ngSubmit)="onSubmit($event)">
+    <label for="fistName">firstName:</label>
+    <!-- <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName"> -->
+    <input type="text" id="firstName" name="firstName" >
+    <label for="lastName">lastName:</label>
+    <!-- <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName"> -->
+    <input type="text" id="lastName" name="lastName">
+    <label for="title">favourite movie:</label>
+    <!-- <input type="text" id="title" name="title" [(ngModel)]="title"> -->
+    <input type="text" id="title" name="title" >
+    <button type="submit" >Submit</button>
+</form>
+
+<div class="actor">
+    <p>{{firstName}}</p>
+    <p>{{lastName}}</p>
+    <p>{{title}}</p>
+</div>
+
+<div class="test">
+    <p>{{2 + 2}}</p>
+    <p>{{firstName.length}}</p>
+    <p>{{firstName.toUpperCase()}}</p>
+    <!-- <p>{{ windows.location.href}}</p> -->
+</div>

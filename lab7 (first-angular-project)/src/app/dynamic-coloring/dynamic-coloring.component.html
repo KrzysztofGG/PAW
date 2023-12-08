@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <h2>Stylowanie dynamiczne</h2>
+
+    <div class="dynamic-colors">
+
+        <div [ngStyle]="{'background-color': elOne ? 'salmon' : 'white'}" (click)="elOne = !elOne" class="dynamic"></div>
+        <div [ngStyle]="{'background-color': elTwo ? 'salmon' : 'white'}" (click)="elTwo = !elTwo" class="dynamic"></div>
+        <div [ngStyle]="{'background-color': elThree ? 'salmon' : 'white'}" (click)="elThree = !elThree" class="dynamic"></div>
+
+    </div>
+</div>

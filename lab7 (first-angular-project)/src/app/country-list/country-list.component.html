@@ -1,0 +1,25 @@
+<div class="countries-wrapper">
+    <h2>Country List</h2>
+    <div class="all-countries">
+        <h3>moje ulubione kraje</h3>
+        <div class="border"></div>
+
+        <div id="input_div">    
+            <input type="text" #newCountry id="country-input">
+            <button type="submit" (click)="addCountry(newCountry.value)">dodaj kraj</button>
+        </div>
+
+        <div *ngIf="countries.length == 0; else elseBlock">Nie dodano jeszcze żadnych krajów - zacznij dodawać nowe!</div>
+        <ng-template #elseBlock >
+            <div *ngFor="let country of countries, even as isEven" [ngClass]="{'evenIncl': !isEven && (country.includes('a') || country.includes('r')),
+             'evenNotIncl': !isEven && !(country.includes('a') || country.includes('r')),
+                'oddBigLen': isEven && country.length >= 6,
+                'oddNotBigLen': isEven && country.length < 6}" class="country" >
+
+                    
+                    <a href='https://en.wikipedia.org/wiki/{{country}}'><p>{{countries.indexOf(country)}}. {{country}}</p></a>
+                    <button type="submit" (click)="deleteCountry(country)">usun go</button>
+            </div>
+        </ng-template>
+    </div>
+</div>

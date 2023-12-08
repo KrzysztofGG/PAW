@@ -1,0 +1,16 @@
+
+
+<div class="friends-wrapper">
+    <h2>Friends List</h2>
+    <div *ngFor="let friend of friends" class="friends">
+
+            <h3 id="name">{{friend.name}}</h3>
+            <div class="border"></div>
+            <button id="details"  (click)="handleDetails($event, friend)">Show details</button>
+
+            <div id="friend-details" *ngIf="friend.details">
+                <p><b>Phone: </b>{{friend.phone}}</p>
+                <p id="email"><b>Email: </b>{{friend.email}}</p>
+            </div>
+    </div>
+</div>
