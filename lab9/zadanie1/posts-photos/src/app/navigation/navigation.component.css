@@ -1,0 +1,22 @@
+#navigation{
+    background-color: lightblue;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 2px 2px lightblue;
+}
+.inner{
+    padding: 3px;
+    font-size: 26px;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+a:hover{
+    background-color: aqua;
+}
+*{
+    /* margin: 0; */
+    /* border: 1px solid black; */
+}
