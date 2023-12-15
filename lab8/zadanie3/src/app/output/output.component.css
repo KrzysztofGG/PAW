@@ -1,0 +1,16 @@
+#chosen-topic{
+    width: 100%;
+    min-height: 80px;
+    box-shadow: 0 0 2px 2px lightgray;
+    border-radius: 16px;
+    text-align: center;
+}
+h2{
+    text-align: center;
+    padding-top: 10px;
+}
+.wrapper{
+    /* margin: 10px; */
+    box-shadow: 0 0 2px 2px lightgray;
+    border-radius: 16px;
+}

@@ -1,0 +1,8 @@
+<div class="adder">
+    <input id="item" type="text" placeholder="Add an Item" #text>
+    <div class="checkbox-div">
+        <input type="checkbox" id="important" #important>
+        <label for="important">bardzo wazne</label>
+    </div>
+    <button (click)="addNewItem(text.value, important.checked)">Save</button>
+</div>

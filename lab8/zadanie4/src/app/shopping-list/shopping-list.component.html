@@ -1,0 +1,16 @@
+<main>
+    <div class="header-wrapper">
+        <h2>Lista zakupów studenta PAW</h2>
+        <button id="add" *ngIf="!isAdding" (click)="isAdding = true">Add</button>
+        <button id="cancel" *ngIf="isAdding" (click)="isAdding = false">Cancel</button>
+    </div>
+    <app-item-adder (notifyNewItem)="addNewItem($event)" *ngIf="isAdding"></app-item-adder>
+    <h3>Random list:</h3>
+    <p class="shoppingItem" (click)="item.isChecked = !item.isChecked" 
+    [class.important]="item.isImportant" [class.checked]="item.isChecked" 
+    *ngFor="let item of randomShoppingItems">{{item.itemContent}}</p>
+    <h3>All items rest list: </h3>
+    <p class="shoppingItem" (click)="item.isChecked = !item.isChecked" 
+    [class.important]="item.isImportant" [class.checked]="item.isChecked" 
+    *ngFor="let item of restShoppingItems">{{item.itemContent}}</p>
+</main>

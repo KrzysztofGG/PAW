@@ -1,0 +1,4 @@
+<div class="color" *ngFor="let color of colors">
+    <label for="{{color}}" >{{color}}</label>
+    <input type="radio" id="{{color}}" (click)="onClick(color)" name="colors" >
+</div>

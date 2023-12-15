@@ -1,0 +1,26 @@
+.adder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#item{
+    flex-basis: 70%;
+    /* width: 60%; */
+    margin: 5px 10px;
+    height: 30px;
+    border: 0;
+    box-shadow: 0 0 1px 1px lightgray;
+}
+button{
+    margin: 5px 10px;
+    padding: 10px 8px;
+    background-color: rgb(45, 164, 204);
+    border-radius: 3px;
+    border: 0;
+    color: white;
+    cursor: pointer;
+}
+.checkbox-div{
+    display: flex;
+
+}
