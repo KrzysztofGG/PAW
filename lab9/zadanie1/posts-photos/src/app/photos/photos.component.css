@@ -1,0 +1,22 @@
+.photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    width: 30%;
+    margin: 5px;
+    text-align: center;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.photo:hover{
+    box-shadow: 0 0 2px 2px lightgray;
+}
+*{
+    border: 1px black;
+}

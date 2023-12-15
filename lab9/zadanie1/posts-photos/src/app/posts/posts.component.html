@@ -1,1 +1,17 @@
-<p>posts works!</p>
+<form [formGroup]="postFormData" (ngSubmit)="onSubmit()">
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title" required>
+
+    <label for="body">Body:</label>
+    <input id="body" formControlName="body" required>
+
+    <button type="submit" [disabled]="postFormData.invalid">Create Post</button>
+  </form>
+<div *ngIf="posts != undefined">
+
+    <div class="post" *ngFor="let post of posts">
+        <h5>{{post.title}}</h5>
+        <p>{{post.body}}</p>
+    </div>
+
+</div>
