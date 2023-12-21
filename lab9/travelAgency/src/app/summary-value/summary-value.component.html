@@ -1,0 +1,35 @@
+<div class="container border border-3 border-info mt-1 d-flex justify-content-center align-items-center">
+    <i class="fa fa-shopping-cart "></i>
+    <div class="reservations border-end border-3 border-info"
+    [ngStyle]="{'background-color': getNumOfReservations() >= 10 ? 'green' : 'rgba(173, 216, 230, 0.56) '}">
+        Reservations: {{getNumOfReservations()}}
+    </div>
+    <div class="value">
+        Value: {{getValueOfReservations()}} PLN
+    </div>
+</div>
+
+<!-- <div class="container">
+
+    <div class="row">
+        <div class="col-1">
+            <i class="fa fa-shopping-cart"></i>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col ">
+                    Reservations: {{reservations}}
+                </div>
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    Value: {{value}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->

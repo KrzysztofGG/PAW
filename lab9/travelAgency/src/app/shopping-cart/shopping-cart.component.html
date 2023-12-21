@@ -1,0 +1,23 @@
+<div class="container-fluid mt-1">
+
+    <div class="row">
+            <div class="col mt-1" *ngFor="let item of reservedTrips | keyvalue">
+                <app-reserved-trip [trip] = item.key [userReservations] = item.value  
+                [reservedTrips] = reservedTrips 
+                (notifyRes)="onNotifyRes($event)"
+                (notifyInclusion)="tripPaymentInclusion($event)"></app-reserved-trip>
+            </div>
+    </div>
+    <div class="row">
+        <div class="col buy border border-3 border-primary mt-1 text-primary d-flex justify-content-center">
+            Summary order value: {{summaryValue}}
+        </div>
+    </div>
+    <div class="row buy ">
+        <div class="col border border-3 border-primary mt-1 text-primary d-flex justify-content-center align-items-center">
+            Buy choosen trips:
+            <button class="btn btn-primary ms-1" (click)="onBuyClick()">Buy</button>
+        </div>
+    </div>
+        
+</div>
