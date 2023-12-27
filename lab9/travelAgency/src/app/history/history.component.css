@@ -27,8 +27,12 @@ p{
     margin: 0;
     font-size: 18px;
 }
-.places, .reservations{
+.buy{
+    font-size: 28px;
+}
+.places {
     font-size: 22px;
+    color: green;
 }
 .line{
     width: 90%;
@@ -36,10 +40,7 @@ p{
     background-color: lightseagreen;
     margin: 10px 0;
 }
-#payment{
-    width: 20px;
-    height: 20px;
-}
+
 #reservedNumber{
     font-size: 28px;
     font-weight: bold;

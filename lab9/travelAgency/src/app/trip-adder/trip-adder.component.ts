@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Trip } from '../single-trip/trip';
+import { TripsService } from '../trips.service';
 
 @Component({
   selector: 'app-trip-adder',
@@ -13,8 +14,7 @@ import { Trip } from '../single-trip/trip';
 export class TripAdderComponent implements OnInit{
   formData!: FormGroup;
 
-  @Output() notifyAdd: EventEmitter<Trip> = new EventEmitter<Trip>();
-  constructor(private http: HttpClient, private fb: FormBuilder) {}
+  constructor(private tripsService: TripsService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.formData = this.fb.group({
@@ -39,6 +39,7 @@ export class TripAdderComponent implements OnInit{
   onFormSubmit(){
     if(this.formData.valid){
       const data = {
+        id: -1,
         name: this.formData.value.name,
         country: this.formData.value.country,
         dateStart: this.formData.value.dateStart,
@@ -56,17 +57,16 @@ export class TripAdderComponent implements OnInit{
 
       //   this.formData.reset();
       // })
-      this.postTrip(data).subscribe((res) =>{
-        console.log(res);
-        this.notifyAdd.emit(data);
-      });
+
+      // this.postTrip(data).subscribe((res) =>{
+      //   console.log(res);
+      //   // this.notifyAdd.emit(data);
+      // });
+      this.tripsService.addTrip(data as Trip)
     }
     else{
       console.log(this.formData);
     }
   }
 
-  postTrip(trip: any){
-    return this.http.post<Trip>("/assets/trips.json", trip);
-  }
 }

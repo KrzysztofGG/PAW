@@ -9,6 +9,8 @@ import { TripFilterComponent } from '../trip-filter/trip-filter.component';
 import { SummaryValueComponent } from '../summary-value/summary-value.component';
 import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
 import { NavigationComponent } from '../navigation/navigation.component';
+import { TripsService } from '../trips.service';
+import { CartService } from '../cart.service';
 
 @Pipe({
   name: 'filterTrips',
@@ -45,16 +47,16 @@ class FilterTripsPipe implements PipeTransform{
 })
 export class TripsListComponent implements OnInit{
 
-  tripsUrl: string = "/assets/trips.json";
-  trips: Trip[] = [];
-  reservedTrips = new Map();
+  // tripsUrl: string = "/assets/trips.json";
+  // trips!: Trip[];
+  // reservedTrips = new Map();
   
-  cheapTrip!: Trip;
-  expensiveTrip!: Trip;
+  // cheapTrip!: Trip;
+  // expensiveTrip!: Trip;
   // userReservations: number = 0;
   // userReservationsValue: number = 0;
 
-  constructor(private http: HttpClient){}
+  constructor(public tripsService: TripsService, public cartService: CartService){}
 
   filters = {
     minPrice: 0,
@@ -66,100 +68,88 @@ export class TripsListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    
-    this.getTrips().subscribe(res =>{
-      this.trips = res;
-      this.trips.forEach(trip => {
-        trip.rating = 0;
-        trip.availablePlaces = trip.maxPlaces;
-      });
-    })
 
-    this.expensiveTrip = this.trips.reduce((prev, curr) =>{
-      return curr.price > prev.price ? curr : prev;
-    })
-    this.cheapTrip = this.trips.reduce((prev, curr) =>{
-      return curr.price > prev.price ? prev : curr;
-    })
+    if(this.tripsService.trips.length > 0)
+      this.setupFilters();
 
-    this.setupFilters();
-
+  
   }
   setupFilters(){
-    this.filters.maxPrice = this.expensiveTrip.price;
+    this.filters.maxPrice = this.tripsService.expensiveTrip.price;
     
-    this.filters.dateStart = this.trips.reduce((prev, curr) =>{
+    this.filters.dateStart = this.tripsService.trips.reduce((prev, curr) =>{
       return curr.dateStart > prev.dateStart ? prev : curr;
     }).dateStart;
 
-    this.filters.dateEnd = this.trips.reduce((prev, curr) =>{
+    this.filters.dateEnd = this.tripsService.trips.reduce((prev, curr) =>{
       return curr.dateEnd > prev.dateEnd ? curr : prev;
     }).dateEnd;
 
     this.filters.countries = this.getCountries();
   }
 
-  getTrips(): Observable<Trip[]>{
-    return this.http.get<Trip[]>(this.tripsUrl);
-  }
+  // getTrips(): void{
+  //   this.tripsService.getTrips().subscribe(res =>{
+  //     this.trips = res;
+  //     this.trips.forEach(trip => {
+  //       // trip.rating = 0;
+  //       trip.availablePlaces = trip.maxPlaces;
+  //     });
+  //   })
+  // }
 
   getCountries(): string[]{
-    return this.trips.map(trip => trip.country).filter(function(item, pos, self){
-      return self.indexOf(item) == pos;
-    });
+    if(this.tripsService.trips){
+      return this.tripsService.trips.map(trip => trip.country).filter(function(item, pos, self){
+        return self.indexOf(item) == pos;
+      });
+    }
+    else
+      return [];
   }
 
   onNotifyDelete(trip: any){
-    this.trips = this.trips.filter(t => t != trip);
+    // this.trips = this.trips.filter(t => t != trip);
 
-    this.expensiveTrip = this.trips.reduce((prev, curr) =>{
-      return curr.price > prev.price ? curr : prev;
-    })
+    // this.expensiveTrip = this.trips.reduce((prev, curr) =>{
+    //   return curr.price > prev.price ? curr : prev;
+    // })
 
-    this.cheapTrip = this.trips.reduce((prev, curr) =>{
-      return curr.price > prev.price ? prev : curr;
-    })
+    // this.cheapTrip = this.trips.reduce((prev, curr) =>{
+    //   return curr.price > prev.price ? prev : curr;
+    // })
+    this.tripsService.deleteTrip(trip);
   }
 
-  onNotifyReservation(event: {trip: Trip, price: number, value: number}){
-    // this.userReservations += event.value;
-    // this.userReservationsValue += event.price;
+  // onNotifyReservation(event: {trip: Trip, price: number, value: number}){
+  //   // this.userReservations += event.value;
+  //   // this.userReservationsValue += event.price;
 
-    if (event.value === 1){
-      if (this.reservedTrips.has(event.trip)){
-        this.reservedTrips.set(event.trip, this.reservedTrips.get(event.trip) + 1);
-      }
-      else{
-        this.reservedTrips.set(event.trip, 1);
-      }
-    }
-    else if (event.value === -1){
-      if (this.reservedTrips.has(event.trip)){
-        this.reservedTrips.set(event.trip, this.reservedTrips.get(event.trip) - 1);
-      }
-      else{
-        this.reservedTrips.set(event.trip, 0)
+  //   if (event.value === 1){
+  //     if (this.reservedTrips.has(event.trip)){
+  //       this.reservedTrips.set(event.trip, this.reservedTrips.get(event.trip) + 1);
+  //     }
+  //     else{
+  //       this.reservedTrips.set(event.trip, 1);
+  //     }
+  //   }
+  //   else if (event.value === -1){
+  //     if (this.reservedTrips.has(event.trip)){
+  //       this.reservedTrips.set(event.trip, this.reservedTrips.get(event.trip) - 1);
+  //     }
+  //     else{
+  //       this.reservedTrips.set(event.trip, 0)
         
-      }
-    }
+  //     }
+  //   }
 
-  }
+  // }
 
-  addNewTrip(res: Trip){
-    this.trips.splice(0, 0, res);
-  }
+  // addNewTrip(res: Trip){
+  //   this.trips.splice(0, 0, res);
+  // }
 
-  getValueOfReservations(){
-    let sum = 0;
-    for (let [key, value] of this.reservedTrips){
-      sum += value * key.price;
-    }
-    return sum;
-  }
 
-  getNumOfReservations(){
-    return Object.values(this.reservedTrips).reduce((acc, val) => acc + val, 0);
-  }
 
   handleFilters(event: {id: string, value: string}){
     if (event.id === 'minPrice')

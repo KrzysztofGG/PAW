@@ -1,82 +1,106 @@
 [
     {
+        "id": 1,
         "name": "Balkans trip",
         "country": "Croatia",
         "dateStart": "16/06/2024",
         "dateEnd": "26/06/2024",
         "price": 500,
         "maxPlaces": 2,
+        "availablePlaces": 2,
         "description": "Trip to Croatia, during which you can swim and eat",
-        "photoUrl": "https://notaboutthemiles.com/wp-content/uploads/2022/12/View-of-Split-Croatia-1024x629.jpg"
+        "photoUrl": "https://notaboutthemiles.com/wp-content/uploads/2022/12/View-of-Split-Croatia-1024x629.jpg",
+        "rating": 0
     },
     {
+        "id": 2,
         "name": "Beautiful Scandinavia",
         "country": "Norway",
-        "dateStart": "01/02/2024",
+        "dateStart": "01/12/2023",
         "dateEnd": "15/02/2024",
         "price": 4000,
         "maxPlaces": 15,
+        "availablePlaces": 15,
         "description": "Trip to see snow and Reindeers",
-        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp"
+        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp",
+        "rating": 0
     },
     {
+        "id": 3,
         "name": "Beautiful Scandinavia",
         "country": "Norway",
-        "dateStart": "01/02/2024",
-        "dateEnd": "15/02/2024",
+        "dateStart": "01/02/2023",
+        "dateEnd": "15/02/2023",
         "price": 4500,
         "maxPlaces": 15,
+        "availablePlaces": 15,
         "description": "Trip to see snow and Reindeers",
-        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp"
+        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp",
+        "rating": 0
     },
     {
+        "id": 4,
         "name": "Beautiful Scandinavia",
         "country": "Norway",
         "dateStart": "01/02/2024",
         "dateEnd": "15/02/2024",
         "price": 4000,
         "maxPlaces": 15,
+        "availablePlaces": 15,
         "description": "Trip to see snow and Reindeers",
-        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp"
+        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp",
+        "rating": 0
     },
     {
+        "id": 5,
         "name": "Beautiful Scandinavia",
         "country": "Norway",
         "dateStart": "01/02/2024",
         "dateEnd": "15/02/2024",
         "price": 4000,
         "maxPlaces": 15,
+        "availablePlaces": 15,
         "description": "Trip to see snow and Reindeers",
-        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp"
+        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp",
+        "rating": 0
     },
     {
+        "id": 6,
         "name": "Beautiful Scandinavia",
         "country": "Norway",
         "dateStart": "01/02/2024",
         "dateEnd": "15/02/2024",
         "price": 4000,
         "maxPlaces": 15,
+        "availablePlaces": 15,
         "description": "Trip to see snow and Reindeers",
-        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp"
+        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp",
+        "rating": 0
     },
     {
+        "id": 7,
         "name": "Beautiful Scandinavia",
         "country": "Norway",
         "dateStart": "01/02/2024",
         "dateEnd": "15/02/2024",
         "price": 4000,
         "maxPlaces": 15,
+        "availablePlaces": 15,
         "description": "Trip to see snow and Reindeers",
-        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp"
+        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp",
+        "rating": 0
     },
     {
+        "id": 8,
         "name": "Beautiful Scandinavia",
         "country": "Norway",
         "dateStart": "01/02/2024",
         "dateEnd": "15/02/2024",
         "price": 4000,
         "maxPlaces": 15,
+        "availablePlaces": 15,
         "description": "Trip to see snow and Reindeers",
-        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp"
+        "photoUrl": "https://media.timeout.com/images/105237855/750/422/image.webp",
+        "rating": 0
     }
 ]

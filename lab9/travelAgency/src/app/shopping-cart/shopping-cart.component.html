@@ -1,22 +1,32 @@
-<div class="container-fluid mt-1">
+<div class="container-fluid m-1 wrapper">
 
     <div class="row">
-            <div class="col mt-1" *ngFor="let item of reservedTrips | keyvalue">
-                <app-reserved-trip [trip] = item.key [userReservations] = item.value  
-                [reservedTrips] = reservedTrips 
-                (notifyRes)="onNotifyRes($event)"
-                (notifyInclusion)="tripPaymentInclusion($event)"></app-reserved-trip>
+            <div class="row" *ngIf="cartService.cart.length > 0; else elseBlock">
+
+                <div class="col mt-1"  *ngFor="let item of cartService.cart">
+                    <app-reserved-trip [trip] = item.trip></app-reserved-trip>    
+                </div>
+
             </div>
+            <ng-template #elseBlock>
+                <div class="col buy border border-3 border-success mt-1 text-success d-flex justify-content-center">
+                    No items in cart
+                </div>
+            </ng-template>
     </div>
-    <div class="row">
-        <div class="col buy border border-3 border-primary mt-1 text-primary d-flex justify-content-center">
-            Summary order value: {{summaryValue}}
+    <div class="d-flex flex-column justify-content-center align-items-center">
+
+        <div class="row">
+            <div class="col buy border border-3 border-primary mt-1 text-primary d-flex justify-content-center ">
+                Summary order value: {{cartService.getCartFinalValue()}}
+            </div>
         </div>
-    </div>
-    <div class="row buy ">
-        <div class="col border border-3 border-primary mt-1 text-primary d-flex justify-content-center align-items-center">
-            Buy choosen trips:
-            <button class="btn btn-primary ms-1" (click)="onBuyClick()">Buy</button>
+
+        <div class="row buy ">
+            <div class="col border border-3 border-primary mt-1 text-primary d-flex justify-content-center align-items-center">
+                Buy choosen trips:
+                <button class="btn btn-primary ms-1" (click)="onBuyClick()">Buy</button>
+            </div>
         </div>
     </div>
         

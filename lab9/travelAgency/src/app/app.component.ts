@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { TripsService } from './trips.service';
 
 
 @Component({

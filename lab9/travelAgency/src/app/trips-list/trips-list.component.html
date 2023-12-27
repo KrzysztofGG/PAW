@@ -2,18 +2,14 @@
 <div class="container-fluid">
     <div class="position-relative">
         <header class=" w-50 display-6 d-flex justify-content-center align-items-center mx-auto "
-        [ngStyle]="{'background-color': getNumOfReservations() >= 10 ? 'green' : 'red'}">Current reservations: {{getNumOfReservations()}}</header>
-        <app-summary-value [reservedTrips]="reservedTrips"
-        class="position-absolute top-0 end-0"></app-summary-value>
+        [ngStyle]="{'background-color': cartService.getNumOfReservations() >= 10 ? 'green' : 'red'}">Current reservations: {{cartService.getNumOfReservations()}}</header>
+        
         <!-- <app-shopping-cart [reservedTrips] = "reservedTrips" [summaryValue]="getValueOfReservations()"></app-shopping-cart> -->
     </div>
         <app-trip-filter [countries]="getCountries()" (notifyFilter)="handleFilters($event)"></app-trip-filter>
     <div class="row">
-        <div class="col d-flex justify-content-center align-items-center" *ngFor="let trip of (trips | filterTrips : filters)">
-            <app-single-trip [trip]="trip" [isCheap]="trip.price === cheapTrip.price" 
-            [isExpensive]="trip.price === expensiveTrip.price"
-            (notifyDelete)="onNotifyDelete($event)"
-            (notifyReservation)="onNotifyReservation($event)"></app-single-trip>
+        <div class="col d-flex justify-content-center align-items-center" *ngFor="let trip of (tripsService.trips | filterTrips : filters)">
+            <app-single-trip [trip]="trip"></app-single-trip>
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SummaryValueComponent } from '../summary-value/summary-value.component';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { Trip } from '../single-trip/trip';
 
 @Component({
   selector: 'app-navigation',
@@ -10,5 +11,5 @@ import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
-
+  reservedTrips = new Map<Trip, number>();
 }

@@ -1,4 +1,10 @@
 .buy{
-    /* margin: 20px; */
     font-size: 28px;
+}
+.wrapper{
+    background-color: rgba(245, 245, 220, 0.54);
+    border-radius: 10px;
+}
+*{
+    /* border: 1px solid black; */
 }

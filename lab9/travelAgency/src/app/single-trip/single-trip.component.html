@@ -5,7 +5,7 @@
     <header class="display-6">{{trip.name | uppercase}}</header>
     <div class="w-100 d-flex justify-content-around">
         <p>{{trip.country | uppercase }}</p>
-        <p>{{trip.price}} {{selectedCurrency}}</p>
+        <p>{{priceToShow}} {{selectedCurrency}}</p>
         <select (ngModelChange)="onSelectChange($event)" [(ngModel)]="selectedCurrency" class="form-selecet form-select-sm">
             <option selected>PLN</option>
             <option>$</option>

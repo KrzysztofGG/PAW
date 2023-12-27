@@ -4,6 +4,8 @@ import { Trip } from './trip';
 import { NgClass, NgIf, NgStyle, UpperCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TripRatingComponent } from '../trip-rating/trip-rating.component';
+import { CartService } from '../cart.service';
+import { TripsService } from '../trips.service';
 
 
 @Component({
@@ -14,72 +16,84 @@ import { TripRatingComponent } from '../trip-rating/trip-rating.component';
   styleUrl: './single-trip.component.css'
 })
 export class SingleTripComponent implements OnInit{
-  @Input() trip!: Trip;
-  @Input() isCheap!: boolean;
-  @Input() isExpensive!: boolean;
 
-  @Output() notifyDelete: EventEmitter<Trip> = new EventEmitter<Trip>();
-  @Output() notifyReservation: EventEmitter<any> = new EventEmitter<any>();
+  @Input() trip!: Trip;
+  // @Input() isCheap!: boolean;
+  // @Input() isExpensive!: boolean;
+
+  // @Output() notifyDelete: EventEmitter<Trip> = new EventEmitter<Trip>();
+  // @Output() notifyReservation: EventEmitter<any> = new EventEmitter<any>();
 
   selectedCurrency: string = 'PLN';
   plnToEuro: number = 0.23;
   plnToDollar: number = 0.25;
   
-  originalPrice!: number;
+  priceToShow!: number;
+
+  constructor(private tripsService: TripsService, private cartService: CartService){}
   // availableSpots!: number;
   ngOnInit(): void {
     // if(this.trip != undefined)
       // this.availableSpots = this.trip.maxPlaces;
-    this.originalPrice = this.trip.price;
+    this.priceToShow = this.trip.price;
   }
 
   onPlusClick(){
     if(this.trip.availablePlaces > 0){
       this.trip.availablePlaces--;
 
-      var priceToSend = this.trip.price;
-      if(this.selectedCurrency === "&#8364")
-        priceToSend = priceToSend /this.plnToEuro
-      else if(this.selectedCurrency === "$")
-        priceToSend = priceToSend /this.plnToDollar;
+      // var priceToSend = this.trip.price;
+      // if(this.selectedCurrency === "&#8364")
+      //   priceToSend = priceToSend /this.plnToEuro
+      // else if(this.selectedCurrency === "$")
+      //   priceToSend = priceToSend /this.plnToDollar;
 
-      this.notifyReservation.emit({trip: this.trip, price: priceToSend, value: 1});
+      // this.notifyReservation.emit({trip: this.trip, price: priceToSend, value: 1});
+      this.cartService.addItemToCart(this.trip);
     }
   }
   onMinusClick(){
     if(this.trip.availablePlaces < this.trip.maxPlaces){
       this.trip.availablePlaces++;
 
-      var priceToSend = this.trip.price;
-      if(this.selectedCurrency === "&#8364")
-        priceToSend = priceToSend /this.plnToEuro
-      else if(this.selectedCurrency === "$")
-        priceToSend = priceToSend /this.plnToDollar;
+      // var priceToSend = this.trip.price;
+      // if(this.selectedCurrency === "&#8364")
+      //   priceToSend = priceToSend /this.plnToEuro
+      // else if(this.selectedCurrency === "$")
+      //   priceToSend = priceToSend /this.plnToDollar;
 
-      this.notifyReservation.emit({trip: this.trip, price: -priceToSend, value: -1});
+      // this.notifyReservation.emit({trip: this.trip, price: -priceToSend, value: -1});
+      this.cartService.removeItemFromCart(this.trip);
 
     }
   }
   getClassNames(){
-    return {
-      'border border-4 border-success': this.isExpensive,
-      'border border-4 border-danger': this.isCheap
+    if(this.trip === this.tripsService.expensiveTrip){
+      return 'border border-4 border-success';
+    }
+    else if (this.trip === this.tripsService.cheapTrip){
+      return 'border border-4 border-danger'
+    }
+    else{
+      return '';
     }
   }
   onSelectChange(value: any){
     if(value === '$'){
-      this.trip.price = this.originalPrice * this.plnToDollar;
+      this.priceToShow = this.trip.price * this.plnToDollar;
     }
     else if(value === "&#8364"){
-      this.trip.price = (this.originalPrice * this.plnToEuro)
+      this.priceToShow = (this.trip.price * this.plnToEuro)
     }
     else if(value === "PLN"){
-      this.trip.price = this.originalPrice;
+      this.priceToShow = this.trip.price;
     }
   }
+
   onDelete(trip: Trip): void{
-    this.notifyDelete.emit(trip);
+    this.tripsService.deleteTrip(trip.id);
   }
+
   handleRating(rating: number){
     this.trip.rating = rating;
   }

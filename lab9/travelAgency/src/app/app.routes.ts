@@ -4,13 +4,14 @@ import { TripsListComponent } from './trips-list/trips-list.component';
 import { TripAdderComponent } from './trip-adder/trip-adder.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { NgModule } from '@angular/core';
+import { HistoryComponent } from './history/history.component';
 
 export const routes: Routes = [
     {path: 'trips', component: TripsListComponent},
     {path: 'home', component: HomeComponent},
     {path: 'add-trip', component: TripAdderComponent},
     {path: 'cart', component: ShoppingCartComponent},
-    // {path: 'history', component: }
+    {path: 'history', component: HistoryComponent},
     {path: '', redirectTo: '/trips', pathMatch: 'full'}
 
 ];
