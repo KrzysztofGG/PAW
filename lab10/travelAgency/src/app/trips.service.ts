@@ -1,28 +1,37 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {  Observable } from 'rxjs';
-import { Trip } from './single-trip/trip';
+import { Trip, TripReview } from './single-trip/trip';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TripsService {
+export class TripsService implements OnInit{
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  // };
+
+  dataRef!: Observable<any[]>;
+  
   public trips : Trip[] = [];
   public expensiveTrip!: Trip;
   public cheapTrip!: Trip;
   freeId: number = 0;
   
   constructor(private http: HttpClient){
+
+    console.log(this.dataRef);
+
     this.getInitialTrips().subscribe(res => this.trips = res);
-    // if(this.trips)
-      this.freeId = Math.max(this.freeId, this.trips.length + 1);
+    this.freeId = Math.max(this.freeId, this.trips.length + 1);
 
     this.updateSpecialTrips();
 
+  }
+  ngOnInit(): void {
+    // throw new Error('Method not implemented.');
+    console.log("trips service init")
   }
 
   updateSpecialTrips(){
@@ -39,8 +48,6 @@ export class TripsService {
 
 
   tripsUrl: string = "/assets/trips.json";
-  // public reservedTrips = new BehaviorSubject(new Map<Trip, number>());
-  
 
   getInitialTrips(): Observable<Trip[]> {
     return this.http.get<Trip[]>(this.tripsUrl);
@@ -57,5 +64,26 @@ export class TripsService {
   deleteTrip(id: number): void{
     this.trips = this.trips.filter(t => t.id != id);
     this.updateSpecialTrips();
+  }
+
+  addReview(trip: Trip, newReview: TripReview){
+    trip.reviews.push(newReview);
+    trip.ratings.push(newReview.rating);
+  }
+
+  getTripMeanRating(trip: Trip): number{
+
+    return Math.ceil(trip.ratings.
+      reduce((a, b) => a+b) / trip.ratings.length);
+    // return this.trips.filter(t => t.id === trip.id)[0].
+    //   reviews.map(r => r.rating).
+    //   reduce((a, b) => a+b) / trip.reviews.length;
+  }
+  getCountries(): string[]{
+    // if(this.trips){
+      return this.trips.map(trip => trip.country).filter(function(item, pos, self){
+        return self.indexOf(item) == pos;
+      });
+    
   }
 }

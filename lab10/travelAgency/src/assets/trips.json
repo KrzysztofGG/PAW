@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name": "Balkans trip",
+        "country": "Croatia",
+        "dateStart": "16/06/2024",
+        "dateEnd": "26/06/2024",
+        "price": 500,
+        "maxPlaces": 2,
+        "availablePlaces": 2,
+        "description": "Trip to Croatia, during which you can swim and eat",
+        "imageSources": [
+            "https://notaboutthemiles.com/wp-content/uploads/2022/12/View-of-Split-Croatia-1024x629.jpg",
+            "https://www.travelandleisure.com/thmb/J0JlieumRs7xFzbnOYrH5lY4YTo=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Zlatni-Rat-Beach-CROATIA0316-277e5a2d83b9425eb72d3188ac5d1eb6.jpg",
+            "https://travellemming.com/wp-content/uploads/Hvar-Croatia-Archipelago.jpg"
+        ],
+        "ratings": [3, 5, 4, 5, 3, 2],
+        "reviews": []
+    },
+    {
+        "id": 2,
+        "name": "Beautiful Scandinavia",
+        "country": "Norway",
+        "dateStart": "01/12/2023",
+        "dateEnd": "15/02/2024",
+        "price": 4000,
+        "maxPlaces": 15,
+        "availablePlaces": 15,
+        "description": "Trip to see snow and Reindeers",
+        "imageSources": [
+            "https://media.timeout.com/images/105237855/750/422/image.webp",
+            "https://media.timeout.com/images/105237855/750/422/image.webp",
+            "https://media.timeout.com/images/105237855/750/422/image.webp"
+        ],
+        "ratings": [3, 5, 4, 5, 3, 2, 1, 1, 1],
+        "reviews": []
+    },
+    {
+        "id": 3,
+        "name": "Beautiful Scandinavia",
+        "country": "Norway",
+        "dateStart": "01/02/2023",
+        "dateEnd": "15/02/2023",
+        "price": 4500,
+        "maxPlaces": 15,
+        "availablePlaces": 15,
+        "description": "Trip to see snow and Reindeers",
+        "imageSources": [
+            "https://media.timeout.com/images/105237855/750/422/image.webp"
+        ],
+        "ratings": [3, 5, 4, 5, 3, 2],
+        "reviews": []
+    },
+    {
+        "id": 4,
+        "name": "Beautiful Scandinavia",
+        "country": "Norway",
+        "dateStart": "01/02/2024",
+        "dateEnd": "15/02/2024",
+        "price": 4000,
+        "maxPlaces": 15,
+        "availablePlaces": 15,
+        "description": "Trip to see snow and Reindeers",
+        "imageSources": [
+            "https://media.timeout.com/images/105237855/750/422/image.webp"
+        ],
+        "ratings": [3, 5, 4, 5, 3, 2],
+        "reviews": []
+    },
+    {
+        "id": 5,
+        "name": "Beautiful Scandinavia",
+        "country": "Norway",
+        "dateStart": "01/02/2024",
+        "dateEnd": "15/02/2024",
+        "price": 4000,
+        "maxPlaces": 15,
+        "availablePlaces": 15,
+        "description": "Trip to see snow and Reindeers",
+        "imageSources": [
+            "https://media.timeout.com/images/105237855/750/422/image.webp"
+        ],
+        "ratings": [3, 5, 4, 5, 3, 2],
+        "reviews": []
+    },
+    {
+        "id": 6,
+        "name": "Beautiful Scandinavia",
+        "country": "Norway",
+        "dateStart": "01/02/2024",
+        "dateEnd": "15/02/2024",
+        "price": 4000,
+        "maxPlaces": 15,
+        "availablePlaces": 15,
+        "description": "Trip to see snow and Reindeers",
+        "imageSources": [
+            "https://media.timeout.com/images/105237855/750/422/image.webp"
+        ],
+        "ratings": [3, 5, 4, 5, 3, 2],
+        "reviews": []
+    },
+    {
+        "id": 7,
+        "name": "Beautiful Scandinavia",
+        "country": "Norway",
+        "dateStart": "01/02/2024",
+        "dateEnd": "15/02/2024",
+        "price": 4000,
+        "maxPlaces": 15,
+        "availablePlaces": 15,
+        "description": "Trip to see snow and Reindeers",
+        "imageSources": [
+            "https://media.timeout.com/images/105237855/750/422/image.webp"
+        ],
+        "ratings": [3, 5, 4, 5, 3, 2],
+        "reviews": []
+    },
+    {
+        "id": 8,
+        "name": "Beautiful Scandinavia",
+        "country": "Norway",
+        "dateStart": "01/02/2024",
+        "dateEnd": "15/02/2024",
+        "price": 4000,
+        "maxPlaces": 15,
+        "availablePlaces": 15,
+        "description": "Trip to see snow and Reindeers",
+        "imageSources": [
+            "https://media.timeout.com/images/105237855/750/422/image.webp"
+        ],
+        "ratings": [3, 5, 4, 5, 3, 2],
+        "reviews": []
+    }
+]

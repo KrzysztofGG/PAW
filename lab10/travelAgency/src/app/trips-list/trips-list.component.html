@@ -6,7 +6,7 @@
         
         <!-- <app-shopping-cart [reservedTrips] = "reservedTrips" [summaryValue]="getValueOfReservations()"></app-shopping-cart> -->
     </div>
-    <app-trip-filter [countries]="getCountries()" (notifyFilter)="handleFilters($event)"></app-trip-filter>
+    <app-trip-filter [countries]="tripsService.getCountries()" (notifyFilter)="handleFilters($event)"></app-trip-filter>
 
         <nav aria-label="Page navigation example" >
             <div class="d-flex justify-content-center align-items-center m-1">
@@ -43,8 +43,8 @@
 
         
     <div class="row">
-        <div class="col d-flex justify-content-center align-items-center" *ngFor="let trip of (tripsToShow | filterTrips : filters)">
-            <app-single-trip [trip]="trip"></app-single-trip>
+        <div class="col d-flex justify-content-center align-items-center" *ngFor="let trip of (tripsToShow)">
+            <app-single-trip [trip]="trip" (notifyDelete)="onDelete($event)"></app-single-trip>
         </div>
     </div>
 </div>
