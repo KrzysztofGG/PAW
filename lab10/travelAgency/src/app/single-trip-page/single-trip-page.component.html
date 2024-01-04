@@ -3,14 +3,14 @@
         <div class="col wrapper">
             <div class="d-flex align-items-center justify-content-between">
               <header class="display-2">{{trip.name.toUpperCase()}}</header>
-              <a routerLink="trips">
+              <a [routerLink]="['/trips']" routerLinkActive="active">
                 <button class="btn btn-large btn-warning">Return</button>
               </a>
             </div>
             <header class="display-3">{{trip.country.toUpperCase()}}</header>
             <header class="display-6 ">{{trip.description}}</header>
             <div class="d-flex align-items-center">
-                <header class="display-6 mb-2">{{priceToShow}} {{selectedCurrency}}</header>
+                <header class="display-6 mb-2 fw-bold">{{priceToShow}} {{selectedCurrency}}</header>
                 <select (ngModelChange)="onSelectChange($event)" [(ngModel)]="selectedCurrency" class="form-select form-select-sm">
                     <option selected>PLN</option>
                     <option>$</option>
@@ -80,3 +80,4 @@
     <button class="btn btn-warning">Return</button>
   </a>
 </div>
+

@@ -12,7 +12,6 @@ export class TripsService implements OnInit{
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   // };
 
-  dataRef!: Observable<any[]>;
   
   public trips : Trip[] = [];
   public expensiveTrip!: Trip;
@@ -21,11 +20,8 @@ export class TripsService implements OnInit{
   
   constructor(private http: HttpClient){
 
-    console.log(this.dataRef);
-
     this.getInitialTrips().subscribe(res => this.trips = res);
     this.freeId = Math.max(this.freeId, this.trips.length + 1);
-
     this.updateSpecialTrips();
 
   }
@@ -59,6 +55,8 @@ export class TripsService implements OnInit{
     this.trips.splice(0, 0, trip);
     this.freeId = Math.max(this.freeId, this.trips.length + 1);
     this.updateSpecialTrips();
+    
+    alert("New trip added");
   }
 
   deleteTrip(id: number): void{

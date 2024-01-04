@@ -12,38 +12,38 @@ import { NavigationComponent } from '../navigation/navigation.component';
 import { TripsService } from '../trips.service';
 import { CartService } from '../cart.service';
 
-@Pipe({
-  name: 'filterTrips',
-  standalone: true
-})
-class FilterTripsPipe implements PipeTransform{
+// @Pipe({
+//   name: 'filterTrips',
+//   standalone: true
+// })
+// class FilterTripsPipe implements PipeTransform{
 
-  constructor(private tripsService: TripsService){}
+//   constructor(private tripsService: TripsService){}
 
-  transform(trips: Trip[], filters: any) {
-    const tripsPriced = trips.filter(trip =>{
-      return trip.price >= filters.minPrice && trip.price <= filters.maxPrice;
-    })
-    const tripsDated = tripsPriced.filter(trip =>{
-      return trip.dateStart >= filters.dateStart && trip.dateEnd <= trip.dateEnd;
-    })
-    const tripsRated = tripsDated.filter(trip => {
-      return filters.rating.indexOf(this.tripsService.getTripMeanRating(trip)) !== -1;
-    })
+//   transform(trips: Trip[], filters: any) {
+//     const tripsPriced = trips.filter(trip =>{
+//       return trip.price >= filters.minPrice && trip.price <= filters.maxPrice;
+//     })
+//     const tripsDated = tripsPriced.filter(trip =>{
+//       return trip.dateStart >= filters.dateStart && trip.dateEnd <= trip.dateEnd;
+//     })
+//     const tripsRated = tripsDated.filter(trip => {
+//       return filters.rating.indexOf(this.tripsService.getTripMeanRating(trip)) !== -1;
+//     })
     
-    return tripsRated.filter(trip =>{
-      return filters.countries.indexOf(trip.country) !== -1;
-    })
-  }
-}
+//     return tripsRated.filter(trip =>{
+//       return filters.countries.indexOf(trip.country) !== -1;
+//     })
+//   }
+// }
 
 @Component({
   selector: 'app-trips-list',
   standalone: true,
   imports: [SingleTripComponent, TripAdderComponent, TripFilterComponent, 
     SummaryValueComponent, ShoppingCartComponent, NavigationComponent,
-    NgFor, NgStyle, FilterTripsPipe],
-  providers: [FilterTripsPipe],
+    NgFor, NgStyle ],
+  // providers: [FilterTripsPipe],
   templateUrl: './trips-list.component.html',
   styleUrl: './trips-list.component.css'
 })
@@ -79,6 +79,7 @@ export class TripsListComponent implements OnInit{
 
   changePageSize(event: any){
     this.pageSize = event.value;
+    this.currentPage = 0;
     this.createPagination();
   }
 
@@ -179,6 +180,7 @@ export class TripsListComponent implements OnInit{
     //   if (this.filters["countries"].l)
     // }
     else if (event.id === 'rating'){
+      console.log(event);
       this.filters["rating"] = [];
       const ratingValue = parseInt(event.value);
       this.filters["rating"].push(ratingValue);

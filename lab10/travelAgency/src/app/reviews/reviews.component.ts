@@ -31,16 +31,16 @@ export class ReviewsComponent {
       author: this.form.value['nick'],
       rating: this.rating,
       comment: this.form.value['description'],
-      date: this.form.value['date']
+      // date: this.form.value['date']
     }
-    // let date = this.form.value['date'];
-    // if (date != null && date != "")
-    //   newReview.date = date;
+    let date = this.form.value['date'];
+    if (date != null && date != "")
+      newReview.date = date;
       
     this.tripsService.addReview(this.trip, newReview);
     console.log(newReview);
 
-    // this.form.reset();
+    this.form.reset();
   }
 
   updateRating(newRating: number): void {

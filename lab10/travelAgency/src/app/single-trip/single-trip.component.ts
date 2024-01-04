@@ -37,7 +37,6 @@ export class SingleTripComponent implements OnInit{
     // if(this.trip != undefined)
       // this.availableSpots = this.trip.maxPlaces;
     this.priceToShow = this.trip.price;
-    console.log(this.trip.imageSources[0]);
   }
 
   onPlusClick(){

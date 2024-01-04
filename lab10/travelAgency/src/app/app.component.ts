@@ -11,8 +11,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,  HttpClientModule, RouterOutlet,
-    TripsListComponent, FormsModule, HomeComponent, NavigationComponent,],
+  imports: [RouterOutlet, NavigationComponent],
+  // imports: [CommonModule,  HttpClientModule, RouterOutlet,
+  //   TripsListComponent, HomeComponent, ,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

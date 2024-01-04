@@ -16,9 +16,11 @@
         </select>
     </div>
     <p><i class="fa fa-calendar"></i> {{trip.dateStart}}-{{trip.dateEnd}}</p>
-    <p>{{trip.description}}</p>
-
-    <!-- <app-trip-rating [readOnly]="true" [writeOnly]="false" [trip]="trip"></app-trip-rating> -->
+    <p class="description">{{trip.description}}</p>
+    <!-- <div class="description">{{trip.description}}</div> -->
+    <div>
+        <app-trip-rating [readOnly]="true" [writeOnly]="false" [trip]="trip"></app-trip-rating>
+    </div>
 
     <div class="w-100">
         <div class="d-flex justify-content-around align-items-center mb-1">

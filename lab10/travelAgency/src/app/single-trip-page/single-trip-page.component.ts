@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
 import { TripsService } from '../trips.service';
 import { Trip } from '../single-trip/trip';
 import { TripRatingComponent } from '../trip-rating/trip-rating.component';
@@ -12,7 +12,7 @@ import { CartService } from '../cart.service';
   selector: 'app-single-trip-page',
   standalone: true,
   imports: [TripRatingComponent, FormsModule, NgIf,
-    ReviewsComponent, NgStyle],
+    ReviewsComponent, NgStyle, RouterModule, RouterOutlet],
   templateUrl: './single-trip-page.component.html',
   styleUrl: './single-trip-page.component.css'
 })
