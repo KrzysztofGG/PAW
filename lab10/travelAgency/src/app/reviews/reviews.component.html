@@ -24,7 +24,7 @@
                 </div>
 
                   <div class="form-group mb-1 d-flex align-items-center">
-                      <textarea id="description" rows="4" class="form-control" minlength="1" maxlength="500" name="description"
+                      <textarea id="description" rows="4" class="form-control"  minlength="50" maxlength="500" name="description"
                       placeholder="Write your review here..." required ngModel #description="ngModel"></textarea>
                   </div>
                   <div><small *ngIf="description.invalid && description.touched" class="text-danger">
@@ -35,9 +35,10 @@
 
             </form>
         </div>
+        
         <div class="col">
             <header class="display-6 text-center">Reviews of {{trip.name}}</header>
-            <div *ngFor="let review of trip.reviews" class="review mt-1">
+            <div *ngFor="let review of trip.reviews" class="review mt-1 mb-2">
                 <div class="row">
                     <header class="display-6 small m-1">Author: {{review.author}}</header>
                     <app-trip-rating [writeOnly]="false" [trip]="trip" [ratingToShow]="review.rating" (ratingChosen)="updateRating($event)" class="ms-1"></app-trip-rating>

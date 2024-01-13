@@ -1,0 +1,12 @@
+changed
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
+
+to 
+
+"server": "src/main.server.ts",
+              "prerender": false,
+              "ssr": false

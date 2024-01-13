@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SummaryValueComponent } from '../summary-value/summary-value.component';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
-import { Trip } from '../single-trip/trip';
+import { Trip } from '../trip';
 
 @Component({
   selector: 'app-navigation',

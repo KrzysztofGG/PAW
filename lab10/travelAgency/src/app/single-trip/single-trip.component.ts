@@ -1,11 +1,11 @@
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Trip } from './trip';
+import { Trip } from '../trip';
 import { NgClass, NgIf, NgStyle, UpperCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TripRatingComponent } from '../trip-rating/trip-rating.component';
-import { CartService } from '../cart.service';
-import { TripsService } from '../trips.service';
+import { CartService } from '../services/cart.service';
+import { TripsService } from '../services/trips.service';
 import { RouterModule } from '@angular/router';
 
 
@@ -23,7 +23,6 @@ export class SingleTripComponent implements OnInit{
   // @Input() isExpensive!: boolean;
 
   @Output() notifyDelete: EventEmitter<Trip> = new EventEmitter<Trip>();
-  // @Output() notifyReservation: EventEmitter<any> = new EventEmitter<any>();
 
   selectedCurrency: string = 'PLN';
   plnToEuro: number = 0.23;
@@ -38,6 +37,12 @@ export class SingleTripComponent implements OnInit{
       // this.availableSpots = this.trip.maxPlaces;
     this.priceToShow = this.trip.price;
   }
+
+  // dateFromEuropeanFormat(europeanDate: string): Date {
+
+  //   const dateParts: string[] = europeanDate.split("/");
+  //   return new Date(+dateParts[2], parseInt(dateParts[1]) - 1, +dateParts[0]); 
+  // }
 
   onPlusClick(){
     if(this.trip.availablePlaces > 0){

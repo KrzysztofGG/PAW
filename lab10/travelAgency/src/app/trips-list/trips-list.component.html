@@ -42,10 +42,12 @@
         </nav>
 
         
-    <div class="row">
-        <div class="col d-flex justify-content-center align-items-center" *ngFor="let trip of (tripsToShow)">
-            <app-single-trip [trip]="trip" (notifyDelete)="onDelete($event)"></app-single-trip>
+    <!-- <div > -->
+        <div class="row" *ngIf="this.tripsService.tripsLoaded | async">
+            <div class="col d-flex justify-content-center align-items-center" *ngFor="let trip of (tripsToShow)">
+                <app-single-trip [trip]="trip" (notifyDelete)="onDelete($event)"></app-single-trip>
+            </div>
         </div>
-    </div>
+    <!-- </div> -->
 </div>
 <!-- <app-trip-adder (notifyAdd)="addNewTrip($event)"></app-trip-adder> -->

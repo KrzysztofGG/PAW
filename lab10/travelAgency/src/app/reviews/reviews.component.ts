@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { Trip, TripReview } from '../single-trip/trip';
-import { TripsService } from '../trips.service';
+import { Trip, TripReview } from '../trip';
+import { TripsService } from '../services/trips.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TripRatingComponent } from '../trip-rating/trip-rating.component';
 import { NgFor, NgIf } from '@angular/common';
@@ -40,7 +40,7 @@ export class ReviewsComponent {
     this.tripsService.addReview(this.trip, newReview);
     console.log(newReview);
 
-    this.form.reset();
+    // this.form.reset();
   }
 
   updateRating(newRating: number): void {

@@ -1,7 +1,7 @@
 <div class="container border border-primary d-flex flex-column justify-content-around align-items-center"
     [ngClass]="getClassNames()">
 
-    <a [routerLink]="['/trip', trip.id]" >
+    <a [routerLink]="['/trip', trip._id]" >
         <img [src]="trip.imageSources[0]" alt="trip photo">
     </a>
     <button id="delete" class="btn btn-danger" (click)="onDelete(trip)">Delete</button>

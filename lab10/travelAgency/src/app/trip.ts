@@ -1,7 +1,7 @@
 import { max } from "rxjs";
 
 export class Trip {
-    id: number;
+    _id: string;
     name: string;
     country: string;
     dateStart: Date;
@@ -14,9 +14,9 @@ export class Trip {
     ratings: number[];
     reviews: TripReview[];
     
-    constructor(id: number=0, name: string, country: string, dateStart: Date, dateEnd: Date,
+    constructor(_id: string, name: string, country: string, dateStart: Date, dateEnd: Date,
         price: number, maxPlaces: number, description: string, imageSources: string[]){
-            this.id = id;
+            this._id = _id;
             this.name = name;
             this.country = country;
             this.dateStart = dateStart;

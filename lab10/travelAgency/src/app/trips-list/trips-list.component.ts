@@ -1,16 +1,16 @@
 import { Component, OnChanges, OnInit, Pipe, PipeTransform, SimpleChanges } from '@angular/core';
-import { Trip } from '../single-trip/trip';
+import { Trip } from '../trip';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SingleTripComponent } from '../single-trip/single-trip.component';
-import { NgFor, NgStyle } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf, NgStyle } from '@angular/common';
 import { TripAdderComponent } from '../trip-adder/trip-adder.component';
 import { TripFilterComponent } from '../trip-filter/trip-filter.component';
 import { SummaryValueComponent } from '../summary-value/summary-value.component';
 import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
 import { NavigationComponent } from '../navigation/navigation.component';
-import { TripsService } from '../trips.service';
-import { CartService } from '../cart.service';
+import { TripsService } from '../services/trips.service';
+import { CartService } from '../services/cart.service';
 
 // @Pipe({
 //   name: 'filterTrips',
@@ -42,8 +42,8 @@ import { CartService } from '../cart.service';
   standalone: true,
   imports: [SingleTripComponent, TripAdderComponent, TripFilterComponent, 
     SummaryValueComponent, ShoppingCartComponent, NavigationComponent,
-    NgFor, NgStyle ],
-  // providers: [FilterTripsPipe],
+    NgFor, NgStyle, NgIf, AsyncPipe ],
+  providers: [  ],
   templateUrl: './trips-list.component.html',
   styleUrl: './trips-list.component.css'
 })
@@ -51,13 +51,15 @@ export class TripsListComponent implements OnInit{
 
   tripsToShow: Trip[] = [];
 
-  constructor(public tripsService: TripsService, public cartService: CartService){}
+  constructor(public tripsService: TripsService, public cartService: CartService){
+    
+  }
 
   filters = {
     minPrice: 0,
-    maxPrice: 0,
-    dateStart: new Date("01/01/1970"),
-    dateEnd: new Date("01/01/1970"),
+    maxPrice: 10000,
+    dateStart: new Date("01/01/1975"),
+    dateEnd: new Date("01/01/2030"),
     rating: [0, 1, 2, 3, 4, 5],
     countries: [""]
   }
@@ -67,8 +69,8 @@ export class TripsListComponent implements OnInit{
     // if(this.tripsService.trips.length > 0){
       this.setupFilters();
       this.createPagination();
+      // console.log(this.tripsService.trips);
     // }
-    
     
   }
 
@@ -92,10 +94,8 @@ export class TripsListComponent implements OnInit{
 
   createPagination(){
     let filteredTrips = this.filterTrips()
+    // let filteredTrips = this.tripsService.trips;
     this.tripsToShow = [];
-    // for(let i= (this.currentPage * this.pageSize); i < Math.min(this.tripsService.trips.length, (this.currentPage + 1) * this.pageSize); ++i){
-    //   this.tripsToShow.push(this.tripsService.trips[i]);
-    // }
     for(let i= (this.currentPage * this.pageSize); i < Math.min(filteredTrips.length, (this.currentPage + 1) * this.pageSize); ++i){
       this.tripsToShow.push(filteredTrips[i]);
     }
@@ -104,47 +104,42 @@ export class TripsListComponent implements OnInit{
   }
 
   setupFilters(){
+
     this.filters.maxPrice = this.tripsService.expensiveTrip.price;
+    this.filters.minPrice = this.tripsService.cheapTrip.price;
+
     this.filters.dateStart = this.tripsService.trips.reduce((prev, curr) =>{
       return curr.dateStart > prev.dateStart ? prev : curr;
     }).dateStart;
-
     this.filters.dateEnd = this.tripsService.trips.reduce((prev, curr) =>{
       return curr.dateEnd > prev.dateEnd ? curr : prev;
     }).dateEnd;
 
+    this.filters.rating = [0, 1, 2, 3, 4, 5];
+
     this.filters.countries = this.tripsService.getCountries();
   }
-
-  // getTrips(): void{
-  //   this.tripsService.getTrips().subscribe(res =>{
-  //     this.trips = res;
-  //     this.trips.forEach(trip => {
-  //       // trip.rating = 0;
-  //       trip.availablePlaces = trip.maxPlaces;
-  //     });
-  //   })
-  // }
-
 
   filterTrips() {
     const tripsPriced = this.tripsService.trips.filter(trip =>{
       return trip.price >= this.filters.minPrice && trip.price <= this.filters.maxPrice;
     })
-    const tripsDated = tripsPriced.filter(trip =>{
-      return trip.dateStart >= this.filters.dateStart && trip.dateEnd <= trip.dateEnd;
-    })
-    const tripsRated = tripsDated.filter(trip => {
-      return this.filters.rating.indexOf(this.tripsService.getTripMeanRating(trip)) !== -1;
-    })
-    
+    // const tripsDated = tripsPriced.filter(trip =>{
+      //   return trip.dateStart >= this.filters.dateStart && trip.dateEnd <= this.filters.dateEnd;
+      // })
+      const tripsDated = tripsPriced;
+      
+      
+      const tripsRated = tripsDated.filter(trip => {
+        return this.filters.rating.indexOf(this.tripsService.getTripMeanRating(trip)) !== -1;
+      })
+      console.log(tripsRated);
+
     return tripsRated.filter(trip =>{
       return this.filters.countries.indexOf(trip.country) !== -1;
     })
   }
-
-
-
+  
   handleFilters(event: {id: string, value: string}){
     if (event.id === 'minPrice'){
       let newMinPrice = parseInt(event.value);
@@ -166,7 +161,6 @@ export class TripsListComponent implements OnInit{
         return curr.dateEnd > prev.dateEnd ? curr : prev;
       }).dateEnd : newDateEnd;
     }
-    
     // else if (event.id === 'rating'){
     //   if (this.filters["rating"].length > 5)
     //     this.filters["rating"] = [];
@@ -180,21 +174,23 @@ export class TripsListComponent implements OnInit{
     //   if (this.filters["countries"].l)
     // }
     else if (event.id === 'rating'){
-      console.log(event);
       this.filters["rating"] = [];
       const ratingValue = parseInt(event.value);
       this.filters["rating"].push(ratingValue);
     }
     else if (event.id === 'countries'){
-      this.filters["countries"] = [];
+      this.filters["countries"].length = 0;
       this.filters["countries"].push(event.value);
+    }
+    else if (event.id === 'clear'){
+      this.setupFilters(); 
     }
     
     this.createPagination();
   }
 
   onDelete(event: Trip){
-    this.tripsService.deleteTrip(event.id);
+    this.tripsService.deleteTrip(event._id);
     this.createPagination();
   }
 }
