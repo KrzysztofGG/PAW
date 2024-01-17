@@ -19,10 +19,10 @@
             <a class="nav-link"  routerLink="history">History</a>
           </li>
 
-          <li class="nav-item" *ngIf="authService.roles.includes('ROLE_MODERATOR') || authService.roles.includes('ROLE_ADMIN')">
+          <li class="nav-item" *ngIf="authService.roles.includes('moderator') || authService.roles.includes('admin')">
             <a class="nav-link" routerLink="mod-page">Trips Manager</a>
           </li>
-          <li class="nav-item"  *ngIf="authService.roles.includes('ROLE_ADMIN')">
+          <li class="nav-item"  *ngIf="authService.roles.includes('admin')">
             <a class="nav-link" routerLink="admin-page">Admin View</a>
           </li>
         </ul>

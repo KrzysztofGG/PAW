@@ -61,7 +61,7 @@ export class SingleTripComponent implements OnInit{
       return 'cheap'
     }
     else{
-      return '';
+      return 'basic';
     }
 
   }

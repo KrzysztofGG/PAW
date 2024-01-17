@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Trip } from '../trip';
+import { AuthService } from './auth.service';
+import { UserService } from './user.service';
+import { TokenStorageService } from './token-storage.service';
+import { TripsService } from './trips.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,22 +11,48 @@ import { Trip } from '../trip';
 export class HistoryService {
 
   purchaseHistory: HistoryRecord[] = [];  
+
   public nearestTrip!: Trip;
   public tripInDays = -1;
-  constructor() { }
+  constructor(private userService: UserService, 
+    private tokenService: TokenStorageService,
+    private tripsService: TripsService) {}
 
-  addToHistory(cartItem: {trip: Trip, quantity: number}): void {
+  // addToHistory(cartItem: {trip: Trip, quantity: number}): void {
 
+  //     let newRecord: HistoryRecord = {
+  //       trip: cartItem.trip,
+  //       quantity: cartItem.quantity,
+  //       purchaseDate: new Date().toLocaleString(),
+  //       state: this.findTripState(cartItem.trip)
+  //     };
+  //     this.purchaseHistory.push(newRecord);
+  //     this.authService.user.purchaseHistory = this.purchaseHistory;
+
+  //     // this.userService.updateUser(this.authService.user)
+  //     this.userService.updatePurchaseHistory(this.authService.user._id, this.purchaseHistory);
+  //     this.findNearestTrip(newRecord);
+  // }
+
+  addItemsToHistory(items: {trip: Trip, quantity: number}[]){
+    for(let cartItem of items){
       let newRecord: HistoryRecord = {
         trip: cartItem.trip,
         quantity: cartItem.quantity,
         purchaseDate: new Date().toLocaleString(),
         state: this.findTripState(cartItem.trip)
       };
-
       this.purchaseHistory.push(newRecord);
       this.findNearestTrip(newRecord);
+      this.tripsService.updateTrip(cartItem.trip);
+    }
 
+
+    let user = this.tokenService.getUser()
+    user.purchaseHistory = this.purchaseHistory;
+    this.userService.updateUser(user);
+    
+    // this.userService.updatePurchaseHistory(user, this.purchaseHistory);
   }
 
   findNearestTrip(record: HistoryRecord){
@@ -30,7 +60,6 @@ export class HistoryService {
       record.trip.dateStart < this.nearestTrip.dateStart))
         this.nearestTrip = record.trip;
 
-    let now = new Date()
     this.tripInDays = (this.nearestTrip == null) ? -1 : this.getDayDiff(new Date(), this.dateFromEuropeanFormat(this.nearestTrip.dateStart.toString()));
   }
 
@@ -64,4 +93,4 @@ export class HistoryService {
   }
 }
 
-interface HistoryRecord{trip: Trip, quantity: number, purchaseDate: string, state: number};
+export interface HistoryRecord{trip: Trip, quantity: number, purchaseDate: string, state: number};

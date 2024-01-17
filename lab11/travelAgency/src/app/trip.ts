@@ -1,4 +1,3 @@
-import { max } from "rxjs";
 
 export class Trip {
     _id: string;

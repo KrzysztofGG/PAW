@@ -1,3 +1,5 @@
+import { HistoryRecord } from "./services/history.service"
+
 export interface User{
     _id: string,
     __v: number,
@@ -6,6 +8,7 @@ export interface User{
     password: string,
     roles: string[],
     isBanned: boolean
+    purchaseHistory: HistoryRecord[]
 }
 
 // export class User {

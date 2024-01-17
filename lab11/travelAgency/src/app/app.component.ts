@@ -11,6 +11,10 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { TripsService } from './services/trips.service';
 
+import { io } from 'socket.io-client';
+import { HistoryService } from './services/history.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -28,11 +32,14 @@ import { TripsService } from './services/trips.service';
 export class AppComponent implements OnInit{
   title = 'travelAgency';
 
-  constructor(private tokenStorageService: TokenStorageService, private authService: AuthService, private tripsService: TripsService){} // add eventBusService
+  constructor(private tokenStorageService: TokenStorageService, 
+    private authService: AuthService, 
+    private tripsService: TripsService,
+    private historyService: HistoryService){}
 
   ngOnInit(): void {
 
-    this.tripsService.refreshTrips();
+    // this.tripsService.refreshTrips();
 
     this.authService.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.authService.isLoggedIn) {
@@ -41,6 +48,11 @@ export class AppComponent implements OnInit{
       this.authService.roles = user.roles;
       this.authService.isBanned = user.isBanned;
       this.authService.username = user.username;
+      // this.authService.user = user;
+      
+      this.historyService.purchaseHistory = this.tokenStorageService.getUser().purchaseHistory;
+
+      this.historyService.purchaseHistory = user.purchaseHistory;
 
     }
   }

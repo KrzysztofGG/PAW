@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
+import { User } from '../user';
+import { Router } from '@angular/router';
 
 const AUTH_API = 'http://localhost:8080/api/auth/';
 
@@ -20,7 +22,7 @@ export class AuthService {
   username?: string;
   isBanned: boolean = false;
 
-  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) {}
+  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService, private router: Router) {}
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'signin', {
@@ -50,8 +52,8 @@ export class AuthService {
 
     this.isLoggedIn = false;
     this.roles = [];
-    // this.showAdminBoard = false;
-    // this.showModeratorBoard = false;
+    this.router.navigate(['home']);
+    // window.location.reload();
   }
   
   // registerUser(user: any){

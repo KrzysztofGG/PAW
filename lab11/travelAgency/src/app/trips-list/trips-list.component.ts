@@ -51,9 +51,7 @@ export class TripsListComponent implements OnInit{
 
   tripsToShow: Trip[] = [];
   trips: Trip[] = [];
-  constructor(public tripsService: TripsService, public cartService: CartService){
-    
-  }
+  constructor(public tripsService: TripsService, public cartService: CartService){}
 
   filters = {
     minPrice: 0,
@@ -61,11 +59,13 @@ export class TripsListComponent implements OnInit{
     dateStart: (new Date("01/01/1975")).toLocaleDateString("en-US"),
     dateEnd: (new Date("01/01/2030")).toLocaleDateString("en-US"),
     rating: [0, 1, 2, 3, 4, 5],
-    countries: this.tripsService.getCountries()
+    countries: ['']
   }
 
   ngOnInit(): void {
-      this.createPagination();
+    this.setupFilters();
+    this.createPagination();
+    this.tripsService.updateSpecialTrips();
   }
 
   currentPage = 0;
@@ -86,9 +86,7 @@ export class TripsListComponent implements OnInit{
   }
 
   createPagination(){
-    // console.log(this.tripsService.trips);
     let filteredTrips = this.filterTrips()
-    // let filteredTrips = this.tripsService.trips;
     this.tripsToShow = [];
     for(let i= (this.currentPage * this.pageSize); i < Math.min(filteredTrips.length, (this.currentPage + 1) * this.pageSize); ++i){
       this.tripsToShow.push(filteredTrips[i]);
@@ -103,16 +101,16 @@ export class TripsListComponent implements OnInit{
     this.filters.minPrice = this.tripsService.cheapTrip.price;
     
 
-    // this.filters.dateStart = new Date(this.tripsService.trips.reduce((prev, curr) =>{
-    //   return curr.dateStart > prev.dateStart ? prev : curr;
-    // }).dateStart).toLocaleDateString("en-US");
-    this.filters.dateStart = (new Date("01/01/1975")).toLocaleDateString("en-US");
+    this.filters.dateStart = new Date(this.tripsService.trips.reduce((prev, curr) =>{
+      return curr.dateStart > prev.dateStart ? prev : curr;
+    }).dateStart).toLocaleDateString("en-US");
+    // this.filters.dateStart = (new Date("01/01/1975")).toLocaleDateString("en-US");
     this.filters.dateEnd = (new Date("05/05/2030")).toLocaleDateString("en-US");
 
     // this.filters.dateEnd = new Date(this.tripsService.trips.reduce((prev, curr) =>{
     //   return curr.dateEnd > prev.dateEnd ? curr : prev;
     // }).dateEnd).toLocaleDateString("en-US");
-    console.log(this.filters)
+    
     this.filters.rating = [0, 1, 2, 3, 4, 5];
 
     this.filters.countries = this.tripsService.getCountries();
@@ -133,12 +131,11 @@ export class TripsListComponent implements OnInit{
       // return new Date(trip.dateStart)>= new Date(this.filters.dateStart) && 
       // new Date(trip.dateEnd) <= new Date(this.filters.dateEnd);
     })
-    // const tripsDated = tripsPriced;
-      
-      const tripsRated = tripsDated.filter(trip => {
-        return this.filters.rating.indexOf(this.tripsService.getTripMeanRating(trip)) !== -1;
-      })
-
+    
+    const tripsRated = tripsDated.filter(trip => {
+      return this.filters.rating.indexOf(this.tripsService.getTripMeanRating(trip)) !== -1;
+    })
+    
     return tripsRated.filter(trip =>{
       return this.filters.countries.indexOf(trip.country) !== -1;
     })

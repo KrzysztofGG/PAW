@@ -10,14 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { ModPageComponent } from './mod-page/mod-page.component';
+import { onlyLoggedInGuard } from './guard/only-logged-in.guard';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'trips', component: TripsListComponent},
-    {path: 'add-trip', component: TripAdderComponent},
+    // {path: 'add-trip', component: TripAdderComponent},
     {path: 'cart', component: ShoppingCartComponent},
-    {path: 'history', component: HistoryComponent},
-    {path: 'trip/:id', component: SingleTripPageComponent},
+    {path: 'history', component: HistoryComponent, canActivate: [onlyLoggedInGuard]},
+    {path: 'trip/:id', component: SingleTripPageComponent, canActivate: [onlyLoggedInGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'admin-page', component: AdminPageComponent},

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SummaryValueComponent } from '../summary-value/summary-value.component';
-import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { Trip } from '../trip';
 import { AuthService } from '../services/auth.service';
 import { NgIf } from '@angular/common';

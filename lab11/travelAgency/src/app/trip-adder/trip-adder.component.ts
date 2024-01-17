@@ -62,7 +62,7 @@ export class TripAdderComponent implements OnInit{
         reviews: []
       }
       this.tripsService.addTrip(data)
-      // this.formData.reset();
+      this.formData.reset();
     }
     else{
       console.log(this.formData);

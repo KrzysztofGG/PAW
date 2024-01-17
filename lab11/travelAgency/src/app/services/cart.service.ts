@@ -36,6 +36,7 @@ export class CartService {
       (a, b) => a.trip.name.toLowerCase().localeCompare(b.trip.name.toLocaleLowerCase())
     );
   }
+
   removeItemFromCart(item: Trip): void {
     let toDelete = {trip: item, quantity: -1};
     for (const record of this.cart) {
@@ -92,14 +93,17 @@ export class CartService {
   }
 
   buyTrips(){
+    let itemsToAdd = [];
     for (let item of this.cart){
       if(!this.tripsNotIncluded.includes(item.trip)){
         
-        this.historyService.addToHistory(item);
+        // this.historyService.addToHistory(item);
+        itemsToAdd.push(item);
         this.cart = this.cart.filter(t => t.trip != item.trip);
         item.trip.maxPlaces -= item.quantity;
       }
     }
+    this.historyService.addItemsToHistory(itemsToAdd);
   }
 
 }

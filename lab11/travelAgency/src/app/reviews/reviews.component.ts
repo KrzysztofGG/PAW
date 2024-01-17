@@ -46,8 +46,8 @@ export class ReviewsComponent {
       this.errMessage = "Admin can't comment";
       return;
     }
-
-    if(this.historyService.purchaseHistory.map(el => el.trip).includes(this.trip)){
+    console.log(this.historyService.purchaseHistory);
+    if(this.historyService.purchaseHistory.map(el => el.trip._id).includes(this.trip._id)){
       this.tripsService.addReview(this.trip, newReview);
       this.reviewFailure = false;
       console.log("Review added" + newReview);

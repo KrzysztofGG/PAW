@@ -4,6 +4,7 @@
         [ngStyle]="{'background-color': cartService.getNumOfReservations() >= 10 ? 'green' : 'red'}">Current reservations: {{cartService.getNumOfReservations()}}</header>
         
     </div>
+    <!-- <app-trip-filter [countries]="tripsService.getCountries()" (notifyFilter)="handleFilters($event)"></app-trip-filter> -->
     <app-trip-filter [countries]="tripsService.getCountries()" (notifyFilter)="handleFilters($event)"></app-trip-filter>
 
         <nav aria-label="Page navigation example" >

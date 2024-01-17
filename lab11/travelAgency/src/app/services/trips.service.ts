@@ -1,8 +1,9 @@
 import { Injectable, OnInit } from '@angular/core';
-import {  Observable } from 'rxjs';
+import {  Observable, firstValueFrom, lastValueFrom } from 'rxjs';
 import { Trip, TripReview } from '../trip';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from './token-storage.service';
+import { io } from 'socket.io-client';
 
 const TRIPS_KEY = 'trips'
 
@@ -15,8 +16,6 @@ const httpOptions = {
 })
 export class TripsService{
 
-
-
   tripsUrl: string = "/assets/tripsDb.json";
   apiURL: string = "http://localhost:8080/api/trips/";
 
@@ -28,11 +27,8 @@ export class TripsService{
   // freeId: number = 0;
   
   constructor(private http: HttpClient, private tokenService: TokenStorageService){
-    // this.getInitialTrips().subscribe(res => this.trips = res.trips);
     
     this.refreshTrips();
-    // this.freeId = Math.max(this.freeId, this.trips.length + 1);
-    // console.log(JSON.parse(window.sessionStorage.getItem(TRIPS_KEY) || ""));
     if(this.trips)
       this.updateSpecialTrips();
   }
@@ -51,6 +47,7 @@ export class TripsService{
 
   async refreshTrips(){
     const headers = this.createAuthHeaders();
+
     this.http.get(this.apiURL, {headers}).subscribe(
       data => {
         window.sessionStorage.removeItem(TRIPS_KEY);
@@ -83,6 +80,7 @@ export class TripsService{
   updateTrip(trip: Trip): void {
     const headers = this.createAuthHeaders();
     this.http.put(this.apiURL + trip._id, trip, {headers}).subscribe(data =>{
+      console.log(`Trip ${trip._id} updated successfuly`);
       this.refreshTrips();
     })
     this.updateSpecialTrips();
@@ -110,10 +108,10 @@ export class TripsService{
 
   deleteTrip(_id: string): void{
     
-    // const headers = this.createAuthHeaders();
-    // this.http.delete(this.apiURL + _id, {headers}).subscribe(data => {
-    //   this.refreshTrips();
-    // })
+    const headers = this.createAuthHeaders();
+    this.http.delete(this.apiURL + _id, {headers}).subscribe(data => {
+      this.refreshTrips();
+    })
 
     this.trips = this.trips.filter(t => t._id != _id);
     this.updateSpecialTrips();

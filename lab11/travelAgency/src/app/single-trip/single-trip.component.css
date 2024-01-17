@@ -70,3 +70,7 @@ button{
 .cheap{
     border: 4px solid green;
 }
+
+.basic{
+    border: 2px solid rgb(31, 151, 191);
+}

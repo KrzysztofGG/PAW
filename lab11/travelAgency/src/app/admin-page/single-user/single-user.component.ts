@@ -26,9 +26,6 @@ export class SingleUserComponent implements OnInit{
   }
 
 
-
-
-
   onSubmit(){
     if(!this.updateForm.valid){
       console.log("form Invalid");
@@ -44,8 +41,9 @@ export class SingleUserComponent implements OnInit{
     if(this.updateForm.value.admin)
       newRoles.push("admin");
 
-    this.userService.updateUser(this.user._id, newRoles, isBanned);
-    this.user.isBanned = isBanned;
     this.user.roles = newRoles;
+    this.user.isBanned = isBanned;
+    this.userService.patchUser(this.user._id, newRoles, isBanned);
+    // this.userService.updateUser(this.user);
   }
 }
